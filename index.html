@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#1c1c1c">
+
+    <title>CodeTonight</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="manifest" href="site.webmanifest">
+
+    <style>
+        /* Ken Burns panning animation */
+        @keyframes ken-burns {
+            0% {
+                background-size: 100% auto;
+                background-position: left top;
+            }
+            100% {
+                background-size: 120% auto;
+                background-position: right bottom;
+            }
+        }
+        /* Fade-in animation - used when the page loads */
+        @keyframes fade-in {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+        /* Dark mode settings */
+        body {
+            background: url("codetonight_bg.jpeg") no-repeat center center fixed;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+            background-color: #1c1c1c;
+            color: #f1f1f1;
+            font-family: 'Roboto Mono', monospace;
+            margin: 0;
+            padding: 0;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            animation: ken-burns 30s infinite alternate ease-in-out, fade-in 2s ease-in-out 1;
+            opacity: 1; /* Set initial opacity to 1 */
+        }
+        /* Main Container */
+        .main-container {
+            display: flex;
+            flex: 1;
+            width: 100%;
+            height: calc(100vh - 40px);  /* Subtract the footer height */
+            max-width: 1600px;
+            margin: auto;
+            padding: 20px;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        /* Add a wrapper around main content */
+        .page-wrap {
+            position: relative;
+            min-height: 100vh;
+        }
+        /* Each Half Container */
+        .half-container {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            margin: 20px;
+        }
+        /* Media Query for Mobile */
+        @media (max-width: 799px) {
+            .main-container {
+                flex-direction: column;
+                align-items: center;
+                height: auto;
+            }
+            .half-container {
+                margin: 0;
+            }
+            .description {
+                text-align: center;
+            }
+        }
+        @media (orientation: portrait) {
+            body {
+                background: none;
+                background-image: none;
+                animation: none;
+                background-color: #1c1c1c;
+            }
+        }
+        /* Footer Styling */
+        footer {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            padding: 10px;
+            text-align: center;
+            font-size: 10px;
+        }
+        /* Logo styling */
+        .logo {
+            width: 100%;
+            height: auto;
+            margin-bottom: 20px;
+        }
+        /* Founder picture styling */
+        .profile-picture {
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            margin-top: 20px;
+        }
+        /* Founder Name styling */
+        .founder-name {
+            font-size: 14px;
+            text-align: center;
+            margin-top: 20px;
+        }
+        /* Description styling */
+        .description {
+            max-width: 90%;
+            word-wrap: break-word;
+            margin-top: 20px;
+        }
+        /* Caption styling */
+        .caption {
+            font-size: 12px;
+            margin-top: 20px;
+        }
+        /* Headings and sub-headings */
+        h2 {
+            font-size: 18px;
+            margin-top: 20px;
+        }
+        .sub-text {
+            font-size: 14px;
+            margin-top: 10px;
+        }
+        .email-text {
+            font-size: 14px;
+            margin-top: 10px;
+            text-align: center;
+        }
+        .email-text a {
+            color: #f1f1f1;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class=""page-wrap>
+        <div class="main-container">
+            <div class="half-container">
+                <img src="logo.png" alt="CodeTonight Logo" class="logo">
+                <img src="laurie_face.jpeg" alt="Laurie's Picture" class="profile-picture">
+                <div class="founder-name">Laurie Scheepers - Founder</div>
+                <div class="email-text">Email us today and we'll CodeTonight™️ at <a href="mailto:laurie@codetonight.co.za" target="_blank">laurie@codetonight.co.za</a></div>
+            </div>
+            <div class="half-container">
+                <div class="description">
+                    <p>"Code tonight<br>
+                    work until the break of dawn<br>
+                    release tomorrow<br>
+                    tomorrow we'll be done"</p>
+    
+                    <div class="caption">- with thanks to Eagle-Eye Cherry 😆</div>
+                    
+                    <h2>Full-Full-Stack Software Development</h2>
+                    <p class="sub-text">We specialize in end-to-end software solutions, covering frontend, backend, <b>AND</b> mobile application development for both Android and iOS platforms.</p>
+                    
+                    <h2>Cloud Integration</h2>
+                    <p class="sub-text">We tailor our cloud solutions to fit your needs, whether it's AWS, Azure, GCP, or any other provider. Just tell us what you need, and we'll make it happen.</p>
+                    
+                    <h2>Automated and Accelerated Deliverables</h2>
+                    <p class="sub-text">Leveraging advanced AI technologies, we significantly speed up the Software Development Life Cycle. As a subscriber to ChatGPT Enterprise, we integrate AI as a trusted software assistant for our team, ensuring accelerated and high-quality deliverables.</p>
+                </div>
+            </div>
+            <footer>Copyright © CodeTonight Pty Ltd 2023</footer>
+        </div>
+    </div>
+</body>
+</html>
