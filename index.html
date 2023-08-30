@@ -15,8 +15,10 @@
 
     <style>
         html, body {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
             height: 100%;
-            overflow: auto; /* Default is to scroll */
         }
 
         /* Ken Burns panning animation */
@@ -148,16 +150,25 @@
                 flex-direction: column;
                 align-items: center;
                 height: auto;
+                width: 100%;
+                box-sizing: border-box; /* Include padding and border in element's total width and height */
             }
             .half-container {
                 margin: 0;
+                width: 100%;
+                box-sizing: border-box;
             }
             .description {
                 text-align: center;
+                width: 100%;
+                box-sizing: border-box;
+            }
+            body {
+                overflow-x: hidden; /* Hide horizontal overflow */
             }
             footer {
                 position: static; /* Switch to normal flow - avoid overlapping of footer and text */
-                margin-top: 20px; /* Add some margin at the top */
+                margin-top: 20px;
             }
         }
         /* Big screens */
