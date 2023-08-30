@@ -14,6 +14,11 @@
     <link rel="manifest" href="site.webmanifest">
 
     <style>
+        html, body {
+            height: 100%;
+            overflow: auto; /* Default is to scroll */
+        }
+
         /* Ken Burns panning animation */
         @keyframes ken-burns {
             0% {
@@ -80,28 +85,6 @@
             flex-direction: column;
             margin: 20px;
         }
-        /* Media Query for Mobile */
-        @media (max-width: 799px) {
-            .main-container {
-                flex-direction: column;
-                align-items: center;
-                height: auto;
-            }
-            .half-container {
-                margin: 0;
-            }
-            .description {
-                text-align: center;
-            }
-        }
-        @media (orientation: portrait) {
-            body {
-                background: none;
-                background-image: none;
-                animation: none;
-                background-color: #1c1c1c;
-            }
-        }
         /* Footer Styling */
         footer {
             position: absolute;
@@ -158,6 +141,39 @@
         .email-text a {
             color: #f1f1f1;
             text-decoration: underline;
+        }
+        /* Media Query for Mobile */
+        @media (max-width: 799px) {
+            .main-container {
+                flex-direction: column;
+                align-items: center;
+                height: auto;
+            }
+            .half-container {
+                margin: 0;
+            }
+            .description {
+                text-align: center;
+            }
+            footer {
+                position: static; /* Switch to normal flow - avoid overlapping of footer and text */
+                margin-top: 20px; /* Add some margin at the top */
+            }
+        }
+        /* Big screens */
+        @media (min-width: 800px) {
+            html, body {
+                overflow: hidden; /* Disable scrolling on larger screens */
+            }
+        }
+        /* Disable animation for portrait */
+        @media (orientation: portrait) {
+            body {
+                background: none;
+                background-image: none;
+                animation: none;
+                background-color: #1c1c1c;
+            }
         }
     </style>
 </head>
