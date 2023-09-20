@@ -25,8 +25,7 @@
         body {
             margin: 0;
             padding: 0;
-            height: 100%;
-            overflow-y: auto;
+            min-height: 100vh;
         }
 
         /* Ken Burns panning animation */
@@ -81,20 +80,17 @@
             flex-direction: row;
             width: 100%;
             height: auto;
-            /* Subtract the footer height */
             max-width: 1600px;
             margin: auto;
             padding: 20px;
             align-items: center;
             justify-content: space-between;
+            text-align: center;
         }
 
         .page-wrap {
             display: flex;
             flex-direction: column;
-            height: 100vh;
-            /* Enables scrolling if content overflows */
-            overflow: auto;
         }
 
         /* Each Half Container */
@@ -105,7 +101,7 @@
             align-items: center;
             flex-direction: column;
             margin: 20px;
-            flex: 1;
+            will-change: transform;
         }
 
         /* Footer Styling */
@@ -113,7 +109,7 @@
             position: relative;
             bottom: auto;
             width: 100%;
-            padding: 10px;
+            padding: 20px;
             text-align: center;
             font-size: 10px;
         }
@@ -198,10 +194,10 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            margin: 10px;
             flex: 0 0 calc(20% - 20px);
             border-radius: 10px;
             transition: 0.3s;
+            box-sizing: border-box;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
@@ -222,7 +218,6 @@
         }
 
         .client-caption {
-            font-size: 0.8rem;
             margin-top: 4px;
             height: 20px;
             text-align: center;
@@ -243,7 +238,6 @@
                 align-items: center;
                 min-height: 100vh;
                 width: 100%;
-                overflow: auto;
             }
 
             .half-container {
@@ -260,7 +254,7 @@
             .client-item {
                 /* 2 tiles in a row, accounting for margins */
                 flex: 0 0 calc(50% - 20px);
-                margin: 10px;
+                box-sizing: border-box;
             }
 
             .description {
@@ -277,6 +271,13 @@
                 flex: 0.1;
                 position: static;
                 margin-top: 20px;
+            }
+        }
+
+        /* Hide vertical overflow for very large screens */
+        @media (min-width: 1601px) {
+            body {
+                overflow-y: hidden;
             }
         }
 
@@ -328,7 +329,7 @@
             </div>
         </div>
         <div class="client-section">
-            <h2>Clients</h2>
+            <h2>Clients (in chronological order)</h2>
             <div class="client-logos">
                 <a class="client-item" href="https://www.sun.ac.za/english" target="_blank" rel="noopener noreferrer">
                     <img src="stellenbosch_tile.png" alt="Stellenbosch University" class="client-logo">
@@ -348,16 +349,12 @@
                     <span class="client-caption">Sudonum</span>
                 </a>
                 <a class="client-item" href="https://play.google.com/" target="_blank" rel="noopener noreferrer">
-                    <div class="client-item">
-                        <img src="sa_inflation_calc_tile.png" alt="SA Inflation Calculator" class="client-logo">
-                        <span class="client-caption">SA Inflation Calculator - Personal project</span>
-                    </div>
+                    <img src="sa_inflation_calc_tile.png" alt="SA Inflation Calculator" class="client-logo">
+                    <span class="client-caption">SA Inflation Calculator - Personal project</span>
                 </a>
                 <a class="client-item" href="https://play.google.com/" target="_blank" rel="noopener noreferrer">
-                    <div class="client-item">
-                        <img src="retire_tile.png" alt="Retire" class="client-logo">
-                        <span class="client-caption">Retire - Personal project</span>
-                    </div>
+                    <img src="retire_tile.png" alt="Retire" class="client-logo">
+                    <span class="client-caption">Retire - Personal project</span>
                 </a>
                 <a class="client-item" href="http://www.kagisomedia.co.za/" target="_blank" rel="noopener noreferrer">
                     <img src="kagiso_tile.png" alt="Kagiso Media" class="client-logo">
@@ -398,6 +395,10 @@
                 <a class="client-item" href="https://qwartel.co.za/" target="_blank" rel="noopener noreferrer">
                     <img src="qwartel_tile.png" alt="Qwartel" class="client-logo">
                     <span class="client-caption">Qwartel - Personal Project</span>
+                </a>
+                <a class="client-item" href="https://www.navistudios.co.za/" target="_blank" rel="noopener noreferrer">
+                    <img src="navi_studios_tile.jpeg" alt="Navi Studios" class="client-logo">
+                    <span class="client-caption">Navi Studios</span>
                 </a>
             </div>
         </div>
