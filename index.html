@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,11 +15,18 @@
     <link rel="manifest" href="site.webmanifest">
 
     <style>
-        html, body {
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
             height: 100%;
+            overflow-y: auto;
         }
 
         /* Ken Burns panning animation */
@@ -27,28 +35,33 @@
                 background-size: 100% auto;
                 background-position: left top;
             }
+
             100% {
                 background-size: 120% auto;
                 background-position: right bottom;
             }
         }
+
         /* Fade-in animation - used when the page loads */
         @keyframes fade-in {
             0% {
                 opacity: 0;
             }
+
             100% {
                 opacity: 1;
             }
         }
+
         /* Dark mode settings */
         body {
-            background: url("codetonight_bg.jpeg") no-repeat center center fixed;
+            background-image: url("codetonight_bg.jpeg");
             -webkit-background-size: cover;
             -moz-background-size: cover;
             -o-background-size: cover;
             background-size: cover;
             background-color: #1c1c1c;
+            background-position: center;
             color: #f1f1f1;
             font-family: 'Roboto Mono', monospace;
             margin: 0;
@@ -58,50 +71,60 @@
             flex-direction: column;
             min-height: 100vh;
             animation: ken-burns 30s infinite alternate ease-in-out, fade-in 2s ease-in-out 1;
-            opacity: 1; /* Set initial opacity to 1 */
+            opacity: 1;
         }
+
         /* Main Container */
         .main-container {
             display: flex;
             flex: 1;
+            flex-direction: row;
             width: 100%;
-            height: calc(100vh - 40px);  /* Subtract the footer height */
+            height: auto;
+            /* Subtract the footer height */
             max-width: 1600px;
             margin: auto;
             padding: 20px;
             align-items: center;
-            justify-content: center;
+            justify-content: space-between;
         }
-        
-        /* Add a wrapper around main content */
+
         .page-wrap {
-            position: relative;
-            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            /* Enables scrolling if content overflows */
+            overflow: auto;
         }
+
         /* Each Half Container */
         .half-container {
-            flex: 1;
+            height: auto;
             display: flex;
             justify-content: center;
             align-items: center;
             flex-direction: column;
             margin: 20px;
+            flex: 1;
         }
+
         /* Footer Styling */
         footer {
-            position: absolute;
-            bottom: 0;
+            position: relative;
+            bottom: auto;
             width: 100%;
             padding: 10px;
             text-align: center;
             font-size: 10px;
         }
+
         /* Logo styling */
         .logo {
             width: 100%;
             height: auto;
             margin-bottom: 20px;
         }
+
         /* Founder picture styling */
         .profile-picture {
             width: 250px;
@@ -109,74 +132,152 @@
             border-radius: 50%;
             margin-top: 20px;
         }
+
         /* Founder Name styling */
         .founder-name {
             font-size: 14px;
             text-align: center;
             margin-top: 20px;
         }
+
         /* Description styling */
         .description {
             max-width: 90%;
             word-wrap: break-word;
             margin-top: 20px;
         }
+
         /* Caption styling */
         .caption {
             font-size: 12px;
             margin-top: 20px;
         }
+
         /* Headings and sub-headings */
         h2 {
             font-size: 18px;
             margin-top: 20px;
         }
+
         .sub-text {
             font-size: 14px;
             margin-top: 10px;
         }
+
         .email-text {
             font-size: 14px;
             margin-top: 10px;
             text-align: center;
         }
+
         .email-text a {
             color: #f1f1f1;
             text-decoration: underline;
         }
+
+        .client-section {
+            flex: 0.3;
+            text-align: center;
+            margin: auto;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .client-logos {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .client-item {
+            width: 100px;
+            height: 150px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin: 10px;
+            flex: 0 0 calc(20% - 20px);
+            border-radius: 10px;
+            transition: 0.3s;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        a.client-item {
+            text-decoration: none;
+            color: #f1f1f1;
+        }
+
+        a.client-item:hover {
+            transform: scale(1.15);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .client-logo {
+            width: 100px;
+            height: 100px;
+            margin: 5px;
+        }
+
+        .client-caption {
+            height: 20px;
+            text-align: center;
+        }
+
+        /* Media Query for Tablets */
+        @media (max-width: 1024px) {
+            .client-item {
+                /* 3 tiles in a row, accounting for margins */
+                flex: 0 0 calc(33.33% - 20px);
+            }
+        }
+
         /* Media Query for Mobile */
         @media (max-width: 799px) {
             .main-container {
                 flex-direction: column;
                 align-items: center;
-                height: auto;
+                min-height: 100vh;
                 width: 100%;
-                box-sizing: border-box; /* Include padding and border in element's total width and height */
+                overflow: auto;
             }
+
             .half-container {
                 margin: 0;
+                padding: 10px;
                 width: 100%;
-                box-sizing: border-box;
+                min-height: auto;
             }
+
+            .client-logos {
+                justify-content: space-around;
+            }
+
+            .client-item {
+                /* 2 tiles in a row, accounting for margins */
+                flex: 0 0 calc(50% - 20px);
+                margin: 10px;
+            }
+
             .description {
                 text-align: center;
                 width: 100%;
                 box-sizing: border-box;
             }
+
             body {
-                overflow-x: hidden; /* Hide horizontal overflow */
+                overflow-x: hidden;
             }
+
             footer {
-                position: static; /* Switch to normal flow - avoid overlapping of footer and text */
+                flex: 0.1;
+                position: static;
                 margin-top: 20px;
             }
         }
-        /* Big screens */
-        @media (min-width: 800px) {
-            html, body {
-                overflow: hidden; /* Disable scrolling on larger screens */
-            }
-        }
+
         /* Disable animation for portrait */
         @media (orientation: portrait) {
             body {
@@ -188,36 +289,107 @@
         }
     </style>
 </head>
+
 <body>
-    <div class=""page-wrap>
+    <div class="page-wrap">
         <div class="main-container">
             <div class="half-container">
                 <img src="logo.png" alt="CodeTonight Logo" class="logo">
                 <img src="laurie_face.jpeg" alt="Laurie's Picture" class="profile-picture">
                 <div class="founder-name">Laurie Scheepers - Founder</div>
-                <div class="email-text">Email us today and we'll CodeTonight™️ at <a href="mailto:laurie@codetonight.co.za" target="_blank">laurie@codetonight.co.za</a></div>
+                <div class="email-text">Email us today and we'll CodeTonight™️ at <a
+                        href="mailto:laurie@codetonight.co.za" target="_blank">laurie@codetonight.co.za</a></div>
             </div>
             <div class="half-container">
                 <div class="description">
                     <p>"Code tonight<br>
-                    work until the break of dawn<br>
-                    release tomorrow<br>
-                    tomorrow we'll be done"</p>
-    
+                        work until the break of dawn<br>
+                        release tomorrow<br>
+                        tomorrow we'll be done"</p>
+
                     <div class="caption">- with thanks to Eagle-Eye Cherry 😆</div>
-                    
+
                     <h2>Full-Full-Stack Software Development</h2>
-                    <p class="sub-text">We specialize in end-to-end software solutions, covering frontend, backend, <b>AND</b> mobile application development for both Android and iOS platforms.</p>
-                    
+                    <p class="sub-text">We specialize in end-to-end software solutions, covering frontend, backend,
+                        <b>AND</b> mobile application development for both Android and iOS platforms.
+                    </p>
+
                     <h2>Cloud Integration</h2>
-                    <p class="sub-text">We tailor our cloud solutions to fit your needs, whether it's AWS, Azure, GCP, or any other provider. Just tell us what you need, and we'll make it happen.</p>
-                    
+                    <p class="sub-text">We tailor our cloud solutions to fit your needs, whether it's AWS, Azure, GCP,
+                        or any other provider. Just tell us what you need, and we'll make it happen.</p>
+
                     <h2>Automated and Accelerated Deliverables</h2>
-                    <p class="sub-text">Leveraging advanced AI technologies, we significantly speed up the Software Development Life Cycle. As a subscriber to ChatGPT Enterprise, we integrate AI as a trusted software assistant for our team, ensuring accelerated and high-quality deliverables.</p>
+                    <p class="sub-text">Leveraging advanced AI technologies, we significantly speed up the Software
+                        Development Life Cycle. As a subscriber to ChatGPT Enterprise, we integrate AI as a trusted
+                        software assistant for our team, ensuring accelerated and high-quality deliverables.</p>
                 </div>
             </div>
-            <footer>Copyright © CodeTonight Pty Ltd 2023</footer>
         </div>
+        <div class="client-section">
+            <h2>Clients</h2>
+            <div class="client-logos">
+                <a class="client-item" href="https://en.wikipedia.org/wiki/Mxit" target="_blank"
+                    rel="noopener noreferrer">
+                    <img src="mxit_tile.png" alt="Mxit" class="client-logo">
+                    <span class="client-caption">Mxit</span>
+                </a>
+                <a class="client-item" href="https://www.thereachtrust.org" target="_blank" rel="noopener noreferrer">
+                    <img src="reach_tile.png" alt="The Reach Trust" class="client-logo">
+                    <span class="client-caption">The Reach Trust</span>
+                </a>
+                <a class="client-item" href="https://www.thereachtrust.org" target="_blank" rel="noopener noreferrer">
+                    <img src="sudonum_tile.png" alt="Sudonum" class="client-logo">
+                    <span class="client-caption">Sudonum</span>
+                </a>
+                <div class="client-item">
+                    <img src="sa_inflation_calc_tile.png" alt="SA Inflation Calculator" class="client-logo">
+                    <span class="client-caption">SA Inflation Calculator - Personal project</span>
+                </div>
+                <div class="client-item">
+                    <img src="retire_tile.png" alt="Retire" class="client-logo">
+                    <span class="client-caption">Retire - Personal project</span>
+                </div>
+                <a class="client-item" href="http://www.kagisomedia.co.za/" target="_blank" rel="noopener noreferrer">
+                    <img src="kagiso_tile.png" alt="Kagiso Media" class="client-logo">
+                    <span class="client-caption">Kagiso Media</span>
+                </a>
+                <a class="client-item" href="https://www.snuza.com/" target="_blank" rel="noopener noreferrer">
+                    <img src="snuza_tile.png" alt="Snuza" class="client-logo">
+                    <span class="client-caption">Snuza</span>
+                </a>
+                <a class="client-item" href="https://www.eventcloud.io/" target="_blank" rel="noopener noreferrer">
+                    <img src="eventcloud_tile.png" alt="EventCloud" class="client-logo">
+                    <span class="client-caption">EventCloud</span>
+                </a>
+                <a class="client-item" href="https://nomanini.com/" target="_blank" rel="noopener noreferrer">
+                    <img src="nomanini_tile.png" alt="Nomanini" class="client-logo">
+                    <span class="client-caption">Nomanini</span>
+                </a>
+                <a class="client-item" href="https://flash.co.za/" target="_blank" rel="noopener noreferrer">
+                    <img src="flash_tile.png" alt="Flash" class="client-logo">
+                    <span class="client-caption">Flash</span>
+                </a>
+                <a class="client-item" href="https://www.kazang.com/" target="_blank" rel="noopener noreferrer">
+                    <img src="kazang_tile.png" alt="Kazang" class="client-logo">
+                    <span class="client-caption">Kazang</span>
+                </a>
+                <a class="client-item" href="https://workwidemobile.com/" target="_blank" rel="noopener noreferrer">
+                    <img src="workwide_tile.jpeg" alt="WorkWide" class="client-logo">
+                    <span class="client-caption">WorkWide</span>
+                </a>
+                <a class="client-item" href="https://hdst.co.za/" target="_blank" rel="noopener noreferrer">
+                    <img src="heimdall_tile.png" alt="Heimdall" class="client-logo">
+                    <span class="client-caption">Heimdall</span>
+                </a>
+                <a class="client-item" href="https://qwartel.co.za/" target="_blank" rel="noopener noreferrer">
+                    <img src="qwartel_tile.png" alt="Qwartel" class="client-logo">
+                    <span class="client-caption">Qwartel - Personal Project</span>
+                </a>
+            </div>
+        </div>
+
+        <footer>Copyright © CodeTonight Pty Ltd 2023</footer>
     </div>
 </body>
+
 </html>
