@@ -296,7 +296,7 @@
             </div>
         </div>
         <div class="client-section">
-            <p><b>Some of our clients:</b></p>
+            <p class="client-text"><b>Some of our clients:</b></p>
             <div id="carousel" class="carousel">
                 <a class="carousel-slide" href="https://www.sun.ac.za/english" target="_blank"
                     rel="noopener noreferrer">
@@ -376,44 +376,25 @@
         </div>
 
         <script>
+            let slideIndex = 0;
             let slides = document.querySelectorAll('.carousel-slide');
             let slideCount = slides.length;
-            let carousel = document.getElementById('carousel');
-
-            // Clone the first and last slide to make the carousel circular
-            let firstSlide = slides[0].cloneNode(true);
-            let lastSlide = slides[slideCount - 1].cloneNode(true);
-            carousel.appendChild(firstSlide);
-            carousel.prepend(lastSlide);
-
-            // Update slide count and slides NodeList
-            slideCount += 2;
-            slides = document.querySelectorAll('.carousel-slide');
-
-            // Initialize slideIndex and transform
-            let slideIndex = 1;
-            let offset = -slideIndex * 300; // 300px is the width of each slide
-            for (let i = 0; i < slideCount; i++) {
-                slides[i].style.transform = `translateX(${offset}px)`;
-            }
 
             function moveSlides() {
-                offset -= 1; // Move 1px left
+                slideIndex++;
+
+                if (slideIndex >= slideCount) {
+                    slideIndex = 0;
+                }
+
+                let offset = -slideIndex * 300; // 300px is the width of each slide
                 for (let i = 0; i < slideCount; i++) {
                     slides[i].style.transform = `translateX(${offset}px)`;
                 }
-
-                if (Math.abs(offset) >= 300 * (slideCount - 1)) {
-                    offset += 300; // Jump back one slide (300px) when reaching the end
-                }
-
-                requestAnimationFrame(moveSlides);
             }
 
-            // Initial call to start the animation
-            moveSlides();
+            setInterval(moveSlides, 2000); // Move slides every 2 seconds
         </script>
-
         <footer>Copyright © CodeTonight Pty Ltd 2023</footer>
     </div>
 </body>
