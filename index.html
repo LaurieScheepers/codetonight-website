@@ -257,6 +257,39 @@
             transition: all 0.3s;
             text-align: center;
         }
+
+        /* Targeting laptop screens */
+        @media (min-width: 800px) and (max-width: 1601px) {
+
+            html,
+            body {
+                overflow-y: hidden;
+            }
+
+            .page-wrap {
+                padding-top: 0px;
+            }
+
+            .main-container {
+                /* Push the main container upwards */
+                margin-top: -20px;
+                padding: 0px;
+            }
+
+            .half-container {
+                margin: 10px;
+                padding: 5px;
+            }
+
+            .client-section {
+                padding-top: 10px;
+            }
+
+            .footer {
+                margin: 0px;
+                padding: 0px;
+            }
+        }
     </style>
 </head>
 
