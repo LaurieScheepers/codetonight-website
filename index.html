@@ -107,6 +107,7 @@
         .logo {
             max-width: 100%;
             height: auto;
+            margin-top: 20px;
             margin-bottom: 20px;
         }
 
@@ -115,12 +116,15 @@
             height: 250px;
             border-radius: 50%;
             margin-top: 20px;
+            margin-right: 10px;
+            /* Add a right margin to Laurie's image */
         }
 
         .founder-name {
             font-size: 14px;
             text-align: center;
             margin-top: 20px;
+            margin-right: 10px;
         }
 
         .description {
@@ -197,6 +201,18 @@
 
         .carousel-slide p {
             margin-top: 10px;
+        }
+
+        @media (max-width: 600px) {
+            .half-container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .profile-picture,
+            .founder-name {
+                margin-right: 0;
+            }
         }
 
         /* Big screens */
@@ -297,11 +313,20 @@
     <div class="page-wrap">
         <div class="main-container">
             <div class="half-container">
+                <!-- Laurie's Section -->
                 <img src="logo.png" alt="CodeTonight Logo" class="logo">
-                <img src="laurie_face.jpeg" alt="Laurie's Picture" class="profile-picture">
-                <div class="founder-name">Laurie Scheepers - Founder</div>
+                <img src="laur_ai.jpeg" alt="Laurie's Picture" class="profile-picture">
+                <div class="founder-name">Laurie Scheepers - Founder and CTO</div>
+
+                <!-- Mia's Section -->
+                <img src="mia_ai.jpeg" alt="Mia's Picture" class="profile-picture">
+                <!-- Corrected the file name by removing the space -->
+                <div class="founder-name">Mia Roos - Business Engineer and Project Manager</div>
+
+                <!-- Contact Email -->
                 <div class="email-text">Email us today and we'll CodeTonight™️ at <a
-                        href="mailto:laurie@codetonight.co.za" target="_blank">laurie@codetonight.co.za</a></div>
+                        href="mailto:laurie@codetonight.co.za" target="_blank">development@codetonight.co.za</a>
+                </div>
             </div>
             <div class="half-container">
                 <div class="description">
