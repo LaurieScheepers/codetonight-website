@@ -117,14 +117,14 @@
             max-width: 100%;
             height: auto;
             margin-top: 20px;
-            margin-bottom: 20px;
+            margin-bottom: 10px;
         }
 
         .profile-picture {
             width: 250px;
             height: 250px;
             border-radius: 50%;
-            margin-top: 20px;
+            margin-top: 10px;
             margin-right: 10px;
             /* Add a right margin to Laurie's image */
         }
@@ -152,10 +152,20 @@
             margin-top: 20px;
         }
 
-        .sub-text,
-        .email-text {
+        .sub-text {
             font-size: 14px;
-            margin-top: 10px;
+            margin-top: 40px;
+        }
+
+        .email-text {
+            font-size: 18px;
+            margin-top: 40px;
+        }
+
+        .see-below-text {
+            font-size: 14px;
+            margin-top: 40px;
+            margin-bottom: 20px;
         }
 
         .email-text a {
@@ -267,6 +277,10 @@
             body {
                 overflow-y: hidden;
             }
+
+            .see-below-text {
+                display: none;
+            }
         }
 
         .carousel {
@@ -285,10 +299,17 @@
 
         /* Targeting laptop screens */
         @media (min-width: 800px) and (max-width: 1601px) {
+            .carousel {
+                display: flex;
+                width: 300px;
+                height: 150px;
+            }
 
-            html,
-            body {
-                overflow-y: hidden;
+            .carousel-slide {
+                min-width: 100%;
+                height: 100px;
+                transition: all 0.3s;
+                text-align: center;
             }
 
             .page-wrap {
@@ -331,11 +352,6 @@
                 <img src="mia_ai.jpeg" alt="Mia's Picture" class="profile-picture">
                 <!-- Corrected the file name by removing the space -->
                 <div class="founder-name">Mia Roos - Business Engineer and Project Manager</div>
-
-                <!-- Contact Email -->
-                <div class="email-text">Email us today and we'll CodeTonight™️ at <a
-                        href="mailto:laurie@codetonight.co.za" target="_blank">development@codetonight.co.za</a>
-                </div>
             </div>
             <div class="half-container">
                 <div class="description">
@@ -359,11 +375,17 @@
                     <p class="sub-text">Leveraging advanced AI technologies, we significantly speed up the Software
                         Development Life Cycle. As a subscriber to ChatGPT Enterprise, we integrate AI as a trusted
                         software assistant for our team, ensuring accelerated and high-quality deliverables.</p>
+                    <!-- Contact Email -->
+                    <div class="email-text"><b>Email us today and we'll CodeTonight™️ at </b><a
+                            href="mailto:laurie@codetonight.co.za"
+                            target="_blank"><b>development@codetonight.co.za</b></a>
+                    </div>
+                    <div class="see-below-text">See below for work experience and clients ⬇️</div>
                 </div>
             </div>
         </div>
         <div class="client-section">
-            <p class="client-text"><b>Some of our clients:</b></p>
+            <p class="client-text"><b>Clients and Work Experience:</b></p>
             <div id="carousel" class="carousel">
                 <a class="carousel-slide" href="https://www.sun.ac.za/english" target="_blank"
                     rel="noopener noreferrer">
