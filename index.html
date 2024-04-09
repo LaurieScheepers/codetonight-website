@@ -84,7 +84,7 @@
             width: 100%;
             margin: auto;
             padding: 20px;
-            align-items: center;
+            align-items: start;
             justify-content: center;
             text-align: center;
         }
@@ -98,11 +98,32 @@
 
         .half-container {
             display: flex;
+            flex: 1;
             justify-content: center;
             align-items: center;
             flex-direction: column;
-            margin: 20px;
         }
+
+        .left-half-container {
+            flex: 1;
+            flex-direction: column;
+        }
+
+        blockquote {
+            background-color: #464646;
+            color: white;
+            font-family: monospace;
+            padding: 20px;
+            margin: 20px 0;
+            border: 5px solid #2c2c2c;
+        }
+
+        /* blockquote .ol {
+            list-style-type: none;
+            align-items: start;
+            align-content: start;
+            justify-content: none;
+        } */
 
         footer {
             position: relative;
@@ -116,19 +137,38 @@
         .logo {
             max-width: 100%;
             height: auto;
+            margin: 30px;
         }
 
         .profile-picture {
             width: 250px;
             height: 250px;
             border-radius: 50%;
+        }
+
+        .profile-pic-container {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: flex-end;
+            gap: 80px;
+        }
+
+        .profile-description {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .profile-name {
+            font-size: 14px;
+            color: #f1f1f1;
             margin-top: 10px;
-            margin-right: 10px;
-            /* Add a right margin to Laurie's image */
+            text-align: center;
         }
 
         .founder-name {
-            font-size: 14px;
+            font-size: 18px;
             text-align: center;
             margin-top: 20px;
             margin-right: 10px;
@@ -142,12 +182,11 @@
 
         .firm-description {
             font-size: 22px;
-            margin-top: 80px;
+            margin-top: 50px;
         }
 
         .caption {
             font-size: 12px;
-            margin-top: 20px;
         }
 
         h2 {
@@ -157,7 +196,14 @@
 
         .sub-text {
             font-size: 14px;
-            margin-top: 40px;
+            margin-top: 20px;
+        }
+
+        .contact-us-container {
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin: 20px;
         }
 
         .email-text {
@@ -205,6 +251,22 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
+        .no-training {
+            display: flex;
+            flex-direction: column;
+            width: 50%;
+            height: 50%;
+            align-items: center;
+            justify-content: center;
+            margin: auto;
+            text-align: center;
+        }
+
+        a {
+            text-decoration: none;
+            color: #1E88E5;
+        }
+
         a.carousel-slide {
             text-decoration: none;
             color: #f1f1f1;
@@ -225,8 +287,14 @@
             margin-top: 10px;
         }
 
+        /* Mobile screens */
         @media (max-width: 600px) {
+
+            .main-container,
+            .profile-pic-container,
+            .left-half-container,
             .half-container {
+                flex: 0;
                 flex-direction: column;
                 align-items: center;
             }
@@ -235,26 +303,39 @@
             .founder-name {
                 margin-right: 0;
             }
-        }
 
-        /* Big screens */
-        @media (min-width: 800px) {
-            .half-container {
-                flex: 1;
+            .logo {
+                width: 75%;
+                height: auto;
+                align-items: center;
             }
         }
 
+        /* Tablet screens */
         @media (max-width: 799px) {
             .main-container {
-                flex-direction: column;
-                align-items: center;
-                width: 100%;
+                flex: 0 1 45%;
+                margin: 0 2.5%;
+                padding: 0;
+            }
+
+            .profile-picture {
+                width: 200px;
+                height: 200px;
             }
 
             .half-container {
                 margin: 0;
                 padding: 10px;
                 width: 100%;
+            }
+
+            .founder-name {
+                font-size: 12px;
+            }
+
+            .firm-description {
+                font-size: 18px;
             }
 
             .client-logos {
@@ -276,6 +357,7 @@
             }
         }
 
+        /* Very large screens */
         @media (min-width: 1601px) {
             body {
                 overflow-y: hidden;
@@ -284,6 +366,12 @@
             .see-below-text {
                 display: none;
             }
+        }
+
+        .sub-text {
+            font-size: 14px;
+            margin-top: 20px;
+            max-width: 550px;
         }
 
         .carousel {
@@ -345,27 +433,56 @@
 <body>
     <div class="page-wrap">
         <div class="main-container">
-            <div class="half-container">
-                <!-- Laurie's Section -->
+            <div class="left-half-container">
                 <img src="logo.png" alt="CodeTonight Logo" class="logo">
-                <img src="laur_ai.jpeg" alt="Laurie's Picture" class="profile-picture">
-                <div class="founder-name">Laurie Scheepers - Founder and Technical Director</div>
+                <div class="profile-pic-container">
+                    <div class="profile-description">
+                        <img src="laur_ai.jpeg" alt="Laurie's Picture" class="profile-picture">
+                        <div class="profile-name"><b>Laurie Scheepers</b><br>Founder and Technical Director</div>
+                    </div>
 
-                <!-- Mia's Section -->
-                <img src="mia_ai.jpeg" alt="Mia's Picture" class="profile-picture">
-                <!-- Corrected the file name by removing the space -->
-                <div class="founder-name">Mia Roos - Business Engineer and Project Manager</div>
+                    <div class="profile-description">
+                        <img src="mia_ai.jpeg" alt="Mia's Picture" class="profile-picture">
+                        <div class="profile-name"><b>Mia Roos</b><br>Executive Director: Business</div>
+                    </div>
+                </div>
+                <div class="contact-us-container">
+                    <div class="email-text"><b>Email us today and we'll CodeTonight™️ at<br></b><a
+                            href="mailto:development@codetonight.co.za"
+                            target="_blank"><b>development@codetonight.co.za</b></a>
+                    </div>
+                    <!-- <div>
+                        <h2>Our Way of Working:</h2>
+                        <blockquote>
+                            <ol>
+                                <li>NDA</li>
+                                <li>Scoping Document</li>
+                                <li>Project & Timeline Plan</li>
+                                <li>Risk Mitigation Document</li>
+                                <li>Billing Options</li>
+                                <li>Milestone-based work deliverables</li>
+                                <li>MVP</li>
+                                <li>QA</li>
+                                <li>Production-ready software</li>
+                            </ol>
+                        </blockquote>
+                    </div> -->
+                    <div class="see-below-text">See below for work experience and clients ⬇️</div>
+                </div>
             </div>
+            <!-- Company description -->
             <div class="half-container">
                 <div class="firm-description"><b>Software- and Project Management Consultancy Firm</b></div>
+
+                <blockquote>🎧 Code tonight<br>
+                    work until the break of dawn<br>
+                    release tomorrow<br>
+                    tomorrow we'll be done 🎧<br>
+                </blockquote>
+
+                <div class="caption">- with thanks to Eagle-Eye Cherry 😆</div>
+
                 <div class="description">
-                    <p>"Code tonight<br>
-                        work until the break of dawn<br>
-                        release tomorrow<br>
-                        tomorrow we'll be done"</p>
-
-                    <div class="caption">- with thanks to Eagle-Eye Cherry 😆</div>
-
                     <h2>Full-Full-Stack Software Development</h2>
                     <p class="sub-text">We specialize in end-to-end software solutions, covering frontend, backend,
                         <b>AND</b> mobile application development for both Android and iOS platforms.
@@ -377,14 +494,23 @@
 
                     <h2>Automated and Accelerated Deliverables</h2>
                     <p class="sub-text">Leveraging advanced AI technologies, we significantly speed up the Software
-                        Development Life Cycle. As a subscriber to ChatGPT Enterprise, we integrate AI as a trusted
-                        software assistant for our team, ensuring accelerated and high-quality deliverables.</p>
-                    <!-- Contact Email -->
-                    <div class="email-text"><b>Email us today and we'll CodeTonight™️ at </b><a
-                            href="mailto:laurie@codetonight.co.za"
-                            target="_blank"><b>development@codetonight.co.za</b></a>
-                    </div>
-                    <div class="see-below-text">See below for work experience and clients ⬇️</div>
+                        Development Life Cycle. As a subscriber to OpenAI's ChatGPT 4 <b>Team Edition</b>, we integrate
+                        AI as
+                        a trusted assistant in the following areas:
+                        <br><br>
+                        * Software Engineering,
+                        <br>
+                        * Project Management,
+                        <br>
+                        * Business Engineering, and a
+                        <br>
+                        * Marketing/Content helper
+                        <br><br>
+                        This ensures accelerated and high-quality deliverables, while
+                        keeping your data fully secure.<b> No personal IP from clients will ever be used to train
+                            GPT models. <a href="https://openai.com/blog/introducing-chatgpt-team" target="_blank">More
+                                about Team Edition</a></b>
+                    </p>
                 </div>
             </div>
         </div>
@@ -477,6 +603,19 @@
                     rel="noopener noreferrer">
                     <img src="capitec_tile.jpeg" alt="Capitec">
                     <p>Capitec</p>
+                </a>
+                <a class="carousel-slide" href="https://www.enablu.co.za/" target="_blank" rel="noopener noreferrer">
+                    <img src="enablu_tile.png" alt="EnablU">
+                    <p>EnablU</p>
+                </a>
+                <a class="carousel-slide" href="https://ikota.net/" target="_blank" rel="noopener noreferrer">
+                    <img src="ikota_tile.png" alt="iKota">
+                    <p>iKota - Personal Project</p>
+                </a>
+                <a class="carousel-slide" href="https://chat.openai.com/g/g-8dHdTobau-nakz" target="_blank"
+                    rel="noopener noreferrer">
+                    <img src="nakz_tile.png" alt="iKota">
+                    <p>NakZ - Personal Project</p>
                 </a>
             </div>
         </div>
