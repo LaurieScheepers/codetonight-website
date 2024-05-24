@@ -135,7 +135,7 @@
         }
 
         .logo {
-            max-width: 100%;
+            max-width: 75%;
             height: auto;
             margin: 30px;
         }
@@ -177,7 +177,6 @@
         .description {
             max-width: 90%;
             word-wrap: break-word;
-            margin-top: 20px;
         }
 
         .firm-description {
@@ -320,6 +319,18 @@
             .see-below-text {
                 display: none;
             }
+
+            .contact-us-container {
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                margin: 40px;
+            }
+
+            .logo {
+                width: 40%;
+                height: auto;
+            }
         }
 
         .sub-text {
@@ -342,6 +353,11 @@
             text-align: center;
         }
 
+        .tally-iframe {
+            width: 50%;
+            margin-top: 30px;
+        }
+
         /* Targeting laptop screens */
         @media (min-width: 800px) and (max-width: 1601px) {
             .carousel {
@@ -362,7 +378,6 @@
             }
 
             .main-container {
-                /* Push the main container upwards */
                 margin-top: -20px;
                 padding: 0px;
             }
@@ -401,44 +416,43 @@
                     </div>
                 </div>
                 <div class="contact-us-container">
-                    <div class="email-text"><b>Email us today and we'll CodeTonight™️ at<br></b><a
-                            href="mailto:development@codetonight.co.za"
-                            target="_blank"><b>development@codetonight.co.za</b></a>
+                    <div class="email-text"><b>Contact Us!</b>
                     </div>
-                    <!-- <div>
-                        <h2>Our Way of Working:</h2>
-                        <blockquote>
-                            <ol>
-                                <li>NDA</li>
-                                <li>Scoping Document</li>
-                                <li>Project & Timeline Plan</li>
-                                <li>Risk Mitigation Document</li>
-                                <li>Billing Options</li>
-                                <li>Milestone-based work deliverables</li>
-                                <li>MVP</li>
-                                <li>QA</li>
-                                <li>Production-ready software</li>
-                            </ol>
-                        </blockquote>
-                    </div> -->
-                    <div class="see-below-text">See below for work experience and clients ⬇️</div>
+                    <iframe
+                        data-tally-src="https://tally.so/embed/woA4DN?alignLeft=1&hideTitle=1&transparentBackground=0&dynamicHeight=1"
+                        loading="lazy" width="75%" height="276" frameborder="0" marginheight="20" marginwidth="0"
+                        title="Contact us (CodeTonight)" class="tally-iframe"></iframe>
+                    <script>
+                        var d = document,
+                            w = "https://tally.so/widgets/embed.js",
+                            v = function () {
+                                "undefined" != typeof Tally ? Tally.loadEmbeds() : d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach((function (e) {
+                                    e.src = e.dataset.tallySrc
+                                }))
+                            };
+                        if ("undefined" != typeof Tally) v();
+                        else if (d.querySelector('script[src="' + w + '"]') == null) {
+                            var s = d.createElement("script");
+                            s.src = w, s.onload = v, s.onerror = v, d.body.appendChild(s);
+                        }
+                    </script>
+
                 </div>
             </div>
             <!-- Company description -->
             <div class="half-container">
-                <div class="firm-description"><b>Software- and Project Management Consultancy Firm</b></div>
+                <div class="firm-description"><b>Advanced Software Development and AI Consultancy</b></div>
 
-                <blockquote>🎧 Code tonight<br>
-                    work until the break of dawn<br>
-                    release tomorrow<br>
-                    tomorrow we'll be done 🎧<br>
-                </blockquote>
-
-                <div class="caption">- with thanks to Eagle-Eye Cherry 😆</div>
+                <!-- <blockquote>As a night-owl, I thrive in the tranquility of the night,<br>where creativity and
+                    innovation
+                    shine brightest ✨.<br>We believe the best solutions are crafted in peaceful hours,<br>ensuring
+                    uninterrupted focus and exceptional quality.<br><br>
+                    - Laurie 🦉
+                </blockquote> -->
 
                 <div class="description">
                     <h2>Full-Full-Stack Software Development</h2>
-                    <p class="sub-text">We specialize in end-to-end software solutions, covering frontend, backend,
+                    <p class="sub-text">We specialize in end-to-end software solutions, covering AI, frontend, backend,
                         <b>AND</b> mobile application development for both Android and iOS platforms.
                     </p>
 
@@ -446,9 +460,15 @@
                     <p class="sub-text">We tailor our cloud solutions to fit your needs, whether it's AWS, Azure, GCP,
                         or any other provider. Just tell us what you need, and we'll make it happen.</p>
 
+                    <h2>AI Development Services</h2>
+                    <p class="sub-text">With extensive experience in Machine Learning and over two years of specialised
+                        expertise in Artificial Intelligence LLMs, we provide bespoke AI solutions tailored to your
+                        specific needs.</p>
+
                     <h2>Automated and Accelerated Deliverables</h2>
                     <p class="sub-text">Leveraging advanced AI technologies, we significantly speed up the Software
-                        Development Life Cycle. As a subscriber to OpenAI's ChatGPT 4 <b>Team Edition</b>, we integrate
+                        Development Life Cycle. As a subscriber to OpenAI's ChatGPT 4 <b>Team Edition</b>, we
+                        integrate
                         AI as
                         a trusted assistant in the following areas:
                         <br><br>
@@ -465,6 +485,10 @@
                             GPT models. <a href="https://openai.com/blog/introducing-chatgpt-team" target="_blank">More
                                 about Team Edition</a></b>
                     </p>
+                </div>
+                <div class="email-text"><b>Email us today and we'll CodeTonight™️ at<br></b><a
+                        href="mailto:development@codetonight.co.za"
+                        target="_blank"><b>development@codetonight.co.za</b></a>
                 </div>
             </div>
         </div>
@@ -571,6 +595,15 @@
                     <img src="nakz_tile.png" alt="iKota">
                     <p>NakZ - Personal Project</p>
                 </a>
+                <a class="carousel-slide" href="https://verifiedtalent.com" target="_blank" rel="noopener noreferrer">
+                    <img src="verified_talent_tile.png" alt="VerifiedTalent">
+                    <p>VerifiedTalent</p>
+                </a>
+                <a class="carousel-slide" href="https://www.warpdevelopment.com/" target="_blank"
+                    rel="noopener noreferrer">
+                    <img src="warp_tile.jpeg" alt="Warp Development">
+                    <p>Warp Development</p>
+                </a>
             </div>
         </div>
 
@@ -592,9 +625,9 @@
                 }
             }
 
-            setInterval(moveSlides, 2000); // Move slides every 2 seconds
+            setInterval(moveSlides, 1500); // Move slides every 1.5 seconds
         </script>
-        <footer>Copyright © CodeTonight Pty Ltd 2023</footer>
+        <footer>Copyright © CodeTonight (Pty) Ltd 2023</footer>
     </div>
 </body>
 
