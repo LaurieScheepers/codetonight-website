@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#1c1c1c">
+
+    <title>CodeTonight</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="manifest" href="site.webmanifest">
+
+    <meta property="og:title" content="CodeTonight" />
+    <meta property="og:description" content="Unlock the Power of AI & Software Innovation with CodeTonight" />
+    <meta property="og:image" content="http://www.codetonight.co.za/codetonight_logo.jpg" />
+    <meta property="og:url" content="http://www.codetonight.co.za/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="CodeTonight" />
+
+    <style>
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        @keyframes ken-burns {
+            0% {
+                background-size: 100% auto;
+                background-position: left top;
+            }
+
+            100% {
+                background-size: 120% auto;
+                background-position: right bottom;
+            }
+        }
+
+        @keyframes fade-in {
+            0% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+        body {
+            background-image: url("codetonight_bg.jpeg");
+            background-size: cover;
+            background-color: #1c1c1c;
+            background-position: center;
+            color: #f1f1f1;
+            font-family: 'Roboto Mono', monospace;
+            margin: 0;
+            padding: 0;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            animation: ken-burns 30s infinite alternate ease-in-out, fade-in 2s ease-in-out 1;
+            opacity: 1;
+        }
+
+        .main-container {
+            display: flex;
+            flex-grow: 1;
+            flex-direction: row;
+            width: 100%;
+            margin: auto;
+            padding: 20px;
+            align-items: start;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .page-wrap {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            flex-grow: 1;
+        }
+
+        .half-container {
+            display: flex;
+            flex: 1;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .left-half-container {
+            flex: 1;
+            flex-direction: column;
+        }
+
+        blockquote {
+            background-color: #464646;
+            color: white;
+            font-family: monospace;
+            padding: 20px;
+            margin: 20px 0;
+            border: 5px solid #2c2c2c;
+        }
+
+        /* blockquote .ol {
+            list-style-type: none;
+            align-items: start;
+            align-content: start;
+            justify-content: none;
+        } */
+
+        footer {
+            position: relative;
+            width: 100%;
+            padding: 20px;
+            text-align: center;
+            font-size: 10px;
+            flex-shrink: 0;
+        }
+
+        .logo {
+            max-width: 75%;
+            height: auto;
+            margin: 30px;
+        }
+
+        .profile-picture {
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+        }
+
+        .profile-pic-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+            justify-items: center;
+            align-items: center;
+            margin: 20px;
+        }
+
+        .profile-description {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .profile-name {
+            font-size: 14px;
+            color: #f1f1f1;
+            margin-top: 10px;
+            text-align: center;
+        }
+
+        .founder-name {
+            font-size: 18px;
+            text-align: center;
+            margin-top: 20px;
+            margin-right: 10px;
+        }
+
+        .description {
+            max-width: 90%;
+            word-wrap: break-word;
+        }
+
+        .firm-description {
+            font-size: 22px;
+            margin-top: 50px;
+        }
+
+        .caption {
+            font-size: 12px;
+        }
+
+        h2 {
+            font-size: 18px;
+            margin-top: 20px;
+        }
+
+        .sub-text {
+            font-size: 14px;
+            margin-top: 20px;
+        }
+
+        .contact-us-container {
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin: 20px;
+        }
+
+        .email-text {
+            font-size: 18px;
+            margin-top: 40px;
+        }
+
+        .see-below-text {
+            font-size: 14px;
+            margin-top: 40px;
+            margin-bottom: 20px;
+        }
+
+        .email-text a {
+            color: #f1f1f1;
+            text-decoration: underline;
+        }
+
+        .client-section {
+            text-align: center;
+            margin: auto;
+            align-items: center;
+            justify-content: center;
+            padding-bottom: 50px;
+        }
+
+        .client-logos {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .client-item {
+            width: 100px;
+            height: 150px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            flex: 0 0 calc(20% - 20px);
+            border-radius: 10px;
+            transition: 0.3s;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .no-training {
+            display: flex;
+            flex-direction: column;
+            width: 50%;
+            height: 50%;
+            align-items: center;
+            justify-content: center;
+            margin: auto;
+            text-align: center;
+        }
+
+        a {
+            text-decoration: none;
+            color: #1E88E5;
+        }
+
+        a.carousel-slide {
+            text-decoration: none;
+            color: #f1f1f1;
+        }
+
+        a.carousel-slide:hover {
+            transform: scale(1.15);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        a.carousel-slide img {
+            height: 150px;
+            width: 150px;
+            object-fit: cover;
+        }
+
+        .carousel-slide p {
+            margin-top: 10px;
+        }
+
+        /* Mobile and tablet screens */
+        @media (max-width: 1024px) {
+
+            .main-container,
+            .profile-pic-container,
+            .left-half-container,
+            .half-container {
+                flex: 0;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .profile-picture,
+            .founder-name {
+                margin-right: 0;
+            }
+
+            .logo {
+                width: 75%;
+                height: auto;
+                align-items: center;
+            }
+
+            .tally-iframe {
+                width: 90% !important;
+            }
+        }
+
+        /* Very large screens */
+        @media (min-width: 1601px) {
+            body {
+                overflow-y: hidden;
+            }
+
+            .see-below-text {
+                display: none;
+            }
+
+            .contact-us-container {
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                margin: 40px;
+            }
+
+            .logo {
+                width: 40%;
+                height: auto;
+            }
+        }
+
+        .sub-text {
+            font-size: 14px;
+            margin-top: 20px;
+            max-width: 550px;
+        }
+
+        .carousel {
+            display: flex;
+            width: 300px;
+            height: 150px;
+            background-color: transparent;
+        }
+
+        .carousel-slide {
+            min-width: 100%;
+            height: 150px;
+            transition: all 0.3s;
+            text-align: center;
+        }
+
+        .tally-iframe {
+            width: 50%;
+            margin-top: 30px;
+        }
+
+        /* Targeting laptop screens */
+        @media (min-width: 800px) and (max-width: 1601px) {
+            .carousel {
+                display: flex;
+                width: 300px;
+                height: 150px;
+            }
+
+            .carousel-slide {
+                min-width: 100%;
+                height: 100px;
+                transition: all 0.3s;
+                text-align: center;
+            }
+
+            .page-wrap {
+                padding-top: 0px;
+            }
+
+            .main-container {
+                margin-top: -20px;
+                padding: 0px;
+            }
+
+            .half-container {
+                margin: 10px;
+                padding: 5px;
+            }
+
+            .client-section {
+                padding-top: 10px;
+            }
+
+            .footer {
+                margin: 0px;
+                padding: 0px;
+            }
+
+            .tally-iframe {
+                width: 80% !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="page-wrap">
+        <div class="main-container">
+            <div class="left-half-container">
+                <img src="logo.png" alt="CodeTonight Logo" class="logo">
+                <div class="profile-pic-container">
+                    <div class="profile-description">
+                        <img src="laur_ai.jpeg" alt="Laurie's Picture" class="profile-picture">
+                        <div class="profile-name"><b>Laurie Scheepers</b><br>Founder and Technical Director</div>
+                    </div>
+
+                    <div class="profile-description">
+                        <img src="mia_ai.jpeg" alt="Mia's Picture" class="profile-picture">
+                        <div class="profile-name"><b>Mia Roos</b><br>Executive Director: Business</div>
+                    </div>
+
+                    <div class="profile-description">
+                        <img src="arlon_ai.png" alt="Arlon's Picture" class="profile-picture">
+                        <div class="profile-name"><b>Arlon Mukeba</b><br>CodeTonight Collaborator™️</div>
+                    </div>
+
+                    <div class="profile-description">
+                        <img src="blank_profile_pic.webp" alt="Sheree's Picture" class="profile-picture">
+                        <div class="profile-name"><b>Sheree Herbert</b><br>Director of Finance</div>
+                    </div>
+
+                    <div class="profile-description">
+                        <img src="blank_profile_pic.webp" alt="Arnold's Picture" class="profile-picture">
+                        <div class="profile-name"><b>Arnold Kinabo</b><br>CodeTonight Collaborator™️</div>
+                    </div>
+
+                    <div class="profile-description">
+                        <img src="blank_profile_pic.webp" alt="Lineo's Picture" class="profile-picture">
+                        <div class="profile-name"><b>Lineo Mahalika</b><br>CodeTonight Collaborator™️</div>
+                    </div>
+                </div>
+                <div class="contact-us-container">
+                    <div class="email-text"><b>Contact Us!</b>
+                    </div>
+                    <iframe
+                        data-tally-src="https://tally.so/embed/woA4DN?alignLeft=1&hideTitle=1&transparentBackground=0&dynamicHeight=1"
+                        loading="lazy" width="75%" height="276" frameborder="0" marginheight="20" marginwidth="0"
+                        title="Contact us (CodeTonight)" class="tally-iframe"></iframe>
+                    <script>
+                        var d = document,
+                            w = "https://tally.so/widgets/embed.js",
+                            v = function () {
+                                "undefined" != typeof Tally ? Tally.loadEmbeds() : d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach((function (e) {
+                                    e.src = e.dataset.tallySrc
+                                }))
+                            };
+                        if ("undefined" != typeof Tally) v();
+                        else if (d.querySelector('script[src="' + w + '"]') == null) {
+                            var s = d.createElement("script");
+                            s.src = w, s.onload = v, s.onerror = v, d.body.appendChild(s);
+                        }
+                    </script>
+
+                </div>
+            </div>
+            <!-- Company description -->
+            <div class="half-container">
+                <div class="firm-description"><b>Innovative Software Development & AI Solutions</b></div>
+
+                <!-- <blockquote>As a night-owl, I thrive in the tranquility of the night,<br>where creativity and
+                    innovation
+                    shine brightest ✨.<br>We believe the best solutions are crafted in peaceful hours,<br>ensuring
+                    uninterrupted focus and exceptional quality.<br><br>
+                    - Laurie 🦉
+                </blockquote> -->
+
+                <div class="description">
+                    <h2>Full-Stack Excellence</h2>
+                    <p class="sub-text">We deliver comprehensive software solutions that seamlessly integrate AI, web
+                        applications, and mobile development for both Android and iOS. Our expertise spans the entire
+                        technology stack, ensuring robust and scalable solutions for your business.</p>
+
+                    <h2>Cloud Architecture & Integration</h2>
+                    <p class="sub-text">From AWS and Azure to GCP, we architect and implement cloud solutions that align
+                        perfectly with your business objectives. Our platform-agnostic approach ensures you get the most
+                        optimal cloud infrastructure for your specific needs.</p>
+
+                    <h2>Advanced AI Implementation</h2>
+                    <p class="sub-text">With deep expertise in Machine Learning and specialized knowledge in Large
+                        Language Models (LLMs), we create custom AI solutions that drive real business value. Our team
+                        stays at the forefront of AI advancements to deliver cutting-edge solutions.</p>
+
+                    <h2>AI-Accelerated Development</h2>
+                    <p class="sub-text">As subscribers to OpenAI's ChatGPT <b>Team Edition</b>, we leverage AI to
+                        enhance our development process across:
+                        <br><br>
+                        * Software Architecture & Engineering
+                        <br>
+                        * Agile Project Management
+                        <br>
+                        * Business Process Optimization
+                        <br>
+                        * Strategic Content Development
+                        <br><br>
+                        This integration accelerates delivery while maintaining the highest quality standards. <b>We
+                            prioritize your intellectual property - no client data is ever used to train AI models. <a
+                                href="https://openai.com/blog/introducing-chatgpt-team" target="_blank">Learn more about
+                                Team Edition</a></b>
+                    </p>
+                </div>
+                <div class="email-text"><b>Email us today and we'll CodeTonight™️ at<br></b><a
+                        href="mailto:development@codetonight.co.za"
+                        target="_blank"><b>development@codetonight.co.za</b></a>
+                </div>
+            </div>
+        </div>
+        <div class="client-section">
+            <p class="client-text"><b>Clients and Work Experience:</b></p>
+            <div id="carousel" class="carousel">
+                <a class="carousel-slide" href="https://www.sun.ac.za/english" target="_blank"
+                    rel="noopener noreferrer">
+                    <img src="stellenbosch_tile.png" alt="Stellenbosch University">
+                    <p>Stellenbosch University - Coding tutor in res</p>
+                </a>
+                <a class="carousel-slide" href="https://en.wikipedia.org/wiki/Mxit" target="_blank"
+                    rel="noopener noreferrer">
+                    <img src="mxit_tile.png" alt="Mxit">
+                    <p>Mxit</p>
+                </a>
+                <a class="carousel-slide" href="https://www.thereachtrust.org" target="_blank"
+                    rel="noopener noreferrer">
+                    <img src="reach_tile.png" alt="The Reach Trust">
+                    <p>The Reach Trust</p>
+                </a>
+                <a class="carousel-slide" href="https://www.thereachtrust.org" target="_blank"
+                    rel="noopener noreferrer">
+                    <img src="sudonum_tile.png" alt="Sudonum">
+                    <p>Sudonum</p>
+                </a>
+                <a class="carousel-slide" href="https://play.google.com/" target="_blank" rel="noopener noreferrer">
+                    <img src="sa_inflation_calc_tile.png" alt="SA Inflation Calculator">
+                    <p>SA Inflation Calculator - Personal Project</p>
+                </a>
+                <a class="carousel-slide" href="https://play.google.com/" target="_blank" rel="noopener noreferrer">
+                    <img src="retire_tile.png" alt="Retire">
+                    <p>Retire - Personal Project</p>
+                </a>
+                <a class="carousel-slide" href="http://www.kagisomedia.co.za/" target="_blank"
+                    rel="noopener noreferrer">
+                    <img src="kagiso_tile.png" alt="Kagiso Media">
+                    <p>Kagiso Media</p>
+                </a>
+                <a class="carousel-slide" href="https://www.snuza.com/" target="_blank" rel="noopener noreferrer">
+                    <img src="snuza_tile.png" alt="Snuza">
+                    <p>Snuza</p>
+                </a>
+                <a class="carousel-slide" href="https://www.eventcloud.io/" target="_blank" rel="noopener noreferrer">
+                    <img src="eventcloud_tile.png" alt="EventCloud">
+                    <p>EventCloud</p>
+                </a>
+                <a class="carousel-slide" href="https://nomanini.com/" target="_blank" rel="noopener noreferrer">
+                    <img src="nomanini_tile.png" alt="Nomanini">
+                    <p>Nomanini</p>
+                </a>
+                <a class="carousel-slide" href="https://trackmatic.co.za/" target="_blank" rel="noopener noreferrer">
+                    <img src="trackmatic_tile.jpeg" alt="Trackmatic">
+                    <p>Trackmatic</p>
+                </a>
+                <a class="carousel-slide" href="https://flash.co.za/" target="_blank" rel="noopener noreferrer">
+                    <img src="flash_tile.png" alt="Flash">
+                    <p>Flash</p>
+                </a>
+                <a class="carousel-slide" href="https://www.kazang.com/" target="_blank" rel="noopener noreferrer">
+                    <img src="kazang_tile.png" alt="Kazang">
+                    <p>Kazang</p>
+                </a>
+                <a class="carousel-slide" href="https://workwidemobile.com/" target="_blank" rel="noopener noreferrer">
+                    <img src="workwide_tile.jpeg" alt="WorkWide">
+                    <p>WorkWide</p>
+                </a>
+                <a class="carousel-slide" href="https://qwartel.co.za/" target="_blank" rel="noopener noreferrer">
+                    <img src="qwartel_tile.png" alt="Qwartel">
+                    <p>Qwartel - Personal Project</p>
+                </a>
+                <a class="carousel-slide" href="https://www.navistudios.co.za/" target="_blank"
+                    rel="noopener noreferrer">
+                    <img src="navi_studios_tile.jpeg" alt="Navi Studios">
+                    <p>Navi Studios</p>
+                </a>
+                <a class="carousel-slide" href="https://www.sasol.co.za/" target="_blank" rel="noopener noreferrer">
+                    <img src="sasol_tile.jpeg" alt="Sasol">
+                    <p>SASOL</p>
+                </a>
+                <a class="carousel-slide" href="https://pip.global/en/" target="_blank" rel="noopener noreferrer">
+                    <img src="pip_tile.png" alt="PIP">
+                    <p>Partners in Performance</p>
+                </a>
+                <a class="carousel-slide" href="https://www.amazon.com/" target="_blank" rel="noopener noreferrer">
+                    <img src="amazon_tile.jpeg" alt="Amazon">
+                    <p>Amazon</p>
+                </a>
+                <a class="carousel-slide" href="https://www.capitecbank.co.za/" target="_blank"
+                    rel="noopener noreferrer">
+                    <img src="capitec_tile.jpeg" alt="Capitec">
+                    <p>Capitec</p>
+                </a>
+                <a class="carousel-slide" href="https://www.enablu.co.za/" target="_blank" rel="noopener noreferrer">
+                    <img src="enablu_tile.png" alt="EnablU">
+                    <p>EnablU</p>
+                </a>
+                <a class="carousel-slide" href="https://ikota.net/" target="_blank" rel="noopener noreferrer">
+                    <img src="ikota_tile.png" alt="iKota">
+                    <p>iKota - Personal Project</p>
+                </a>
+                <a class="carousel-slide" href="https://chat.openai.com/g/g-8dHdTobau-nakz" target="_blank"
+                    rel="noopener noreferrer">
+                    <img src="nakz_tile.png" alt="iKota">
+                    <p>NakZ - Personal Project</p>
+                </a>
+                <a class="carousel-slide" href="https://verifiedtalent.com" target="_blank" rel="noopener noreferrer">
+                    <img src="verified_talent_tile.png" alt="VerifiedTalent">
+                    <p>VerifiedTalent</p>
+                </a>
+                <a class="carousel-slide" href="https://www.warpdevelopment.com/" target="_blank"
+                    rel="noopener noreferrer">
+                    <img src="warp_tile.jpeg" alt="Warp Development">
+                    <p>Warp Development</p>
+                </a>
+                <a class="carousel-slide" href="https://www.skeg.com/" target="_blank" rel="noopener noreferrer">
+                    <img src="skeg_logo.png" alt="SKEG">
+                    <p>SKEG</p>
+                </a>
+            </div>
+        </div>
+
+        <script>
+            let slideIndex = 0;
+            let slides = document.querySelectorAll('.carousel-slide');
+            let slideCount = slides.length;
+
+            function moveSlides() {
+                slideIndex++;
+
+                if (slideIndex >= slideCount) {
+                    slideIndex = 0;
+                }
+
+                let offset = -slideIndex * 300; // 300px is the width of each slide
+                for (let i = 0; i < slideCount; i++) {
+                    slides[i].style.transform = `translateX(${offset}px)`;
+                }
+            }
+
+            setInterval(moveSlides, 1500); // Move slides every 1.5 seconds
+        </script>
+        <footer>Copyright &copy; CodeTonight (Pty) Ltd 2023</footer>
+    </div>
+</body>
+
+</html>

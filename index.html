@@ -13,15 +13,13 @@
     <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
     <link rel="manifest" href="site.webmanifest">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <meta property="og:title" content="CodeTonight" />
-    <meta property="og:description" content="Advanced Software Development and AI Consultancy" />
+    <meta property="og:description" content="building.new.revamp" />
     <meta property="og:image" content="http://www.codetonight.co.za/codetonight_logo.jpg" />
     <meta property="og:url" content="http://www.codetonight.co.za/" />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="CodeTonight" />
-    <title>CodeTonight</title>
 
     <style>
         *,
@@ -60,6 +58,20 @@
             }
         }
 
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.05);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
         body {
             background-image: url("codetonight_bg.jpeg");
             background-size: cover;
@@ -80,11 +92,11 @@
         .main-container {
             display: flex;
             flex-grow: 1;
-            flex-direction: row;
+            flex-direction: column;
             width: 100%;
             margin: auto;
             padding: 20px;
-            align-items: start;
+            align-items: center;
             justify-content: center;
             text-align: center;
         }
@@ -96,34 +108,88 @@
             flex-grow: 1;
         }
 
-        .half-container {
-            display: flex;
-            flex: 1;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
+        .logo {
+            max-width: 300px;
+            height: auto;
+            margin: 30px;
+            animation: pulse 3s infinite ease-in-out;
         }
 
-        .left-half-container {
-            flex: 1;
-            flex-direction: column;
-        }
-
-        blockquote {
-            background-color: #464646;
-            color: white;
-            font-family: monospace;
-            padding: 20px;
+        .coming-soon-title {
+            font-size: 2rem;
+            font-weight: 700;
             margin: 20px 0;
-            border: 5px solid #2c2c2c;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
         }
 
-        /* blockquote .ol {
-            list-style-type: none;
-            align-items: start;
-            align-content: start;
-            justify-content: none;
-        } */
+        .subtitle {
+            font-size: 1.5rem;
+            margin: 20px 0 40px 0;
+            opacity: 0.9;
+            max-width: 600px;
+            line-height: 1.4;
+        }
+
+        .cta-section {
+            margin: 20px 0;
+            padding: 10px;
+            background: transparent;
+            max-width: 500px;
+        }
+
+        .cta-title {
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: #ffffff;
+        }
+
+        .cta-description {
+            font-size: 1rem;
+            margin-bottom: 25px;
+            line-height: 1.5;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: transparent;
+            color: white;
+            padding: 10px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(50, 50, 50, 0.3);
+            animation: pulse 2s infinite ease-in-out;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            border: 1px solid #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 6px 20px rgba(251, 253, 255, 0.4);
+            background: transparent;
+            color: #ffffff;
+        }
+
+        .view-old-button {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.1);
+            color: #f1f1f1;
+            padding: 12px 25px;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: 400;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            margin-top: 30px;
+        }
+
+        .view-old-button:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-1px);
+        }
 
         footer {
             position: relative;
@@ -134,274 +200,43 @@
             flex-shrink: 0;
         }
 
-        .logo {
-            max-width: 75%;
-            height: auto;
-            margin: 30px;
-        }
-
-        .profile-picture {
-            width: 250px;
-            height: 250px;
-            border-radius: 50%;
-        }
-
-        .profile-pic-container {
-            display: flex;
-            flex-direction: row;
-            justify-content: center;
-            align-items: flex-end;
-            gap: 80px;
-        }
-
-        .profile-description {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .profile-name {
-            font-size: 14px;
-            color: #f1f1f1;
-            margin-top: 10px;
-            text-align: center;
-        }
-
-        .founder-name {
-            font-size: 18px;
-            text-align: center;
-            margin-top: 20px;
-            margin-right: 10px;
-        }
-
-        .description {
-            max-width: 90%;
-            word-wrap: break-word;
-        }
-
-        .firm-description {
-            font-size: 22px;
-            margin-top: 50px;
-        }
-
-        .caption {
-            font-size: 12px;
-        }
-
-        h2 {
-            font-size: 18px;
-            margin-top: 20px;
-        }
-
-        .sub-text {
-            font-size: 14px;
-            margin-top: 20px;
-        }
-
-        .contact-us-container {
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            margin: 20px;
-        }
-
-        .email-text {
-            font-size: 18px;
-            margin-top: 40px;
-        }
-
-        .see-below-text {
-            font-size: 14px;
-            margin-top: 40px;
-            margin-bottom: 20px;
-        }
-
-        .email-text a {
-            color: #f1f1f1;
-            text-decoration: underline;
-        }
-
-        .client-section {
-            text-align: center;
-            margin: auto;
-            align-items: center;
-            justify-content: center;
-            padding-bottom: 50px;
-        }
-
-        .client-logos {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .client-item {
-            width: 100px;
-            height: 150px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            flex: 0 0 calc(20% - 20px);
-            border-radius: 10px;
-            transition: 0.3s;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-
-        .no-training {
-            display: flex;
-            flex-direction: column;
-            width: 50%;
-            height: 50%;
-            align-items: center;
-            justify-content: center;
-            margin: auto;
-            text-align: center;
-        }
-
-        a {
-            text-decoration: none;
-            color: #1E88E5;
-        }
-
-        a.carousel-slide {
-            text-decoration: none;
-            color: #f1f1f1;
-        }
-
-        a.carousel-slide:hover {
-            transform: scale(1.15);
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-        }
-
-        a.carousel-slide img {
-            height: 150px;
-            width: 150px;
-            object-fit: cover;
-        }
-
-        .carousel-slide p {
-            margin-top: 10px;
-        }
-
         /* Mobile and tablet screens */
-        @media (max-width: 1024px) {
-
-            .main-container,
-            .profile-pic-container,
-            .left-half-container,
-            .half-container {
-                flex: 0;
-                flex-direction: column;
-                align-items: center;
+        @media (max-width: 768px) {
+            .coming-soon-title {
+                font-size: 1rem;
             }
 
-            .profile-picture,
-            .founder-name {
-                margin-right: 0;
+            .subtitle {
+                font-size: 1.2rem;
+                padding: 0 20px;
+            }
+
+            .cta-section {
+                margin: 20px;
+                padding: 20px;
+            }
+
+            .cta-title {
+                font-size: 1rem;
             }
 
             .logo {
-                width: 75%;
-                height: auto;
-                align-items: center;
-            }
-
-            .tally-iframe {
-                width: 90% !important;
+                max-width: 200px;
             }
         }
 
         /* Very large screens */
         @media (min-width: 1601px) {
-            body {
-                overflow-y: hidden;
+            .coming-soon-title {
+                font-size: 3rem;
             }
 
-            .see-below-text {
-                display: none;
+            .subtitle {
+                font-size: 1.8rem;
             }
 
-            .contact-us-container {
-                flex-direction: column;
-                align-items: center;
-                justify-content: center;
-                margin: 40px;
-            }
-
-            .logo {
-                width: 40%;
-                height: auto;
-            }
-        }
-
-        .sub-text {
-            font-size: 14px;
-            margin-top: 20px;
-            max-width: 550px;
-        }
-
-        .carousel {
-            display: flex;
-            width: 300px;
-            height: 150px;
-            background-color: transparent;
-        }
-
-        .carousel-slide {
-            min-width: 100%;
-            height: 150px;
-            transition: all 0.3s;
-            text-align: center;
-        }
-
-        .tally-iframe {
-            width: 50%;
-            margin-top: 30px;
-        }
-
-        /* Targeting laptop screens */
-        @media (min-width: 800px) and (max-width: 1601px) {
-            .carousel {
-                display: flex;
-                width: 300px;
-                height: 150px;
-            }
-
-            .carousel-slide {
-                min-width: 100%;
-                height: 100px;
-                transition: all 0.3s;
-                text-align: center;
-            }
-
-            .page-wrap {
-                padding-top: 0px;
-            }
-
-            .main-container {
-                margin-top: -20px;
-                padding: 0px;
-            }
-
-            .half-container {
-                margin: 10px;
-                padding: 5px;
-            }
-
-            .client-section {
-                padding-top: 10px;
-            }
-
-            .footer {
-                margin: 0px;
-                padding: 0px;
-            }
-
-            .tally-iframe {
-                width: 80% !important;
+            .cta-section {
+                max-width: 600px;
             }
         }
     </style>
@@ -410,236 +245,32 @@
 <body>
     <div class="page-wrap">
         <div class="main-container">
-            <div class="left-half-container">
-                <img src="logo.png" alt="CodeTonight Logo" class="logo">
-                <div class="profile-pic-container">
-                    <div class="profile-description">
-                        <img src="laur_ai.jpeg" alt="Laurie's Picture" class="profile-picture">
-                        <div class="profile-name"><b>Laurie Scheepers</b><br>Founder and Technical Director</div>
-                    </div>
+            <img src="logo.png" alt="CodeTonight Logo" class="logo">
 
-                    <div class="profile-description">
-                        <img src="mia_ai.jpeg" alt="Mia's Picture" class="profile-picture">
-                        <div class="profile-name"><b>Mia Roos</b><br>Executive Director: Business</div>
-                    </div>
-                </div>
-                <div class="contact-us-container">
-                    <div class="email-text"><b>Contact Us!</b>
-                    </div>
-                    <iframe
-                        data-tally-src="https://tally.so/embed/woA4DN?alignLeft=1&hideTitle=1&transparentBackground=0&dynamicHeight=1"
-                        loading="lazy" width="75%" height="276" frameborder="0" marginheight="20" marginwidth="0"
-                        title="Contact us (CodeTonight)" class="tally-iframe"></iframe>
-                    <script>
-                        var d = document,
-                            w = "https://tally.so/widgets/embed.js",
-                            v = function () {
-                                "undefined" != typeof Tally ? Tally.loadEmbeds() : d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach((function (e) {
-                                    e.src = e.dataset.tallySrc
-                                }))
-                            };
-                        if ("undefined" != typeof Tally) v();
-                        else if (d.querySelector('script[src="' + w + '"]') == null) {
-                            var s = d.createElement("script");
-                            s.src = w, s.onload = v, s.onerror = v, d.body.appendChild(s);
-                        }
-                    </script>
+            <h1 class="coming-soon-title">building.new.revamp...</h1>
 
-                </div>
+            <p class="subtitle">
+
+            </p>
+
+            <div class="cta-section">
+                <h2 class="cta-title">do.you.dare.to.dream?</h2>
+                <p class="cta-description">
+                    <a href="https://persistent-fridge-441.notion.site/" target="_blank" class="cta-button">clickity
+                        click ☾</a>
+                </p>
             </div>
-            <!-- Company description -->
-            <div class="half-container">
-                <div class="firm-description"><b>Advanced Software Development and AI Consultancy</b></div>
 
-                <!-- <blockquote>As a night-owl, I thrive in the tranquility of the night,<br>where creativity and
-                    innovation
-                    shine brightest ✨.<br>We believe the best solutions are crafted in peaceful hours,<br>ensuring
-                    uninterrupted focus and exceptional quality.<br><br>
-                    - Laurie 🦉
-                </blockquote> -->
+            <a href="https://calendly.com/codetonight" target="_blank" class="view-old-button">
+                ground control to major tom?
+            </a>
 
-                <div class="description">
-                    <h2>Full-Full-Stack Software Development</h2>
-                    <p class="sub-text">We specialize in end-to-end software solutions, covering AI, frontend, backend,
-                        <b>AND</b> mobile application development for both Android and iOS platforms.
-                    </p>
-
-                    <h2>Cloud Integration</h2>
-                    <p class="sub-text">We tailor our cloud solutions to fit your needs, whether it's AWS, Azure, GCP,
-                        or any other provider. Just tell us what you need, and we'll make it happen.</p>
-
-                    <h2>AI Development Services</h2>
-                    <p class="sub-text">With extensive experience in Machine Learning and over two years of specialised
-                        expertise in Artificial Intelligence LLMs, we provide bespoke AI solutions tailored to your
-                        specific needs.</p>
-
-                    <h2>Automated and Accelerated Deliverables</h2>
-                    <p class="sub-text">Leveraging advanced AI technologies, we significantly speed up the Software
-                        Development Life Cycle. As a subscriber to OpenAI's ChatGPT 4 <b>Team Edition</b>, we
-                        integrate
-                        AI as
-                        a trusted assistant in the following areas:
-                        <br><br>
-                        * Software Engineering,
-                        <br>
-                        * Project Management,
-                        <br>
-                        * Business Engineering, and a
-                        <br>
-                        * Marketing/Content helper
-                        <br><br>
-                        This ensures accelerated and high-quality deliverables, while
-                        keeping your data fully secure.<b> No personal IP from clients will ever be used to train
-                            GPT models. <a href="https://openai.com/blog/introducing-chatgpt-team" target="_blank">More
-                                about Team Edition</a></b>
-                    </p>
-                </div>
-                <div class="email-text"><b>Email us today and we'll CodeTonight™️ at<br></b><a
-                        href="mailto:development@codetonight.co.za"
-                        target="_blank"><b>development@codetonight.co.za</b></a>
-                </div>
-            </div>
-        </div>
-        <div class="client-section">
-            <p class="client-text"><b>Clients and Work Experience:</b></p>
-            <div id="carousel" class="carousel">
-                <a class="carousel-slide" href="https://www.sun.ac.za/english" target="_blank"
-                    rel="noopener noreferrer">
-                    <img src="stellenbosch_tile.png" alt="Stellenbosch University">
-                    <p>Stellenbosch University - Coding tutor in res</p>
-                </a>
-                <a class="carousel-slide" href="https://en.wikipedia.org/wiki/Mxit" target="_blank"
-                    rel="noopener noreferrer">
-                    <img src="mxit_tile.png" alt="Mxit">
-                    <p>Mxit</p>
-                </a>
-                <a class="carousel-slide" href="https://www.thereachtrust.org" target="_blank"
-                    rel="noopener noreferrer">
-                    <img src="reach_tile.png" alt="The Reach Trust">
-                    <p>The Reach Trust</p>
-                </a>
-                <a class="carousel-slide" href="https://www.thereachtrust.org" target="_blank"
-                    rel="noopener noreferrer">
-                    <img src="sudonum_tile.png" alt="Sudonum">
-                    <p>Sudonum</p>
-                </a>
-                <a class="carousel-slide" href="https://play.google.com/" target="_blank" rel="noopener noreferrer">
-                    <img src="sa_inflation_calc_tile.png" alt="SA Inflation Calculator">
-                    <p>SA Inflation Calculator - Personal Project</p>
-                </a>
-                <a class="carousel-slide" href="https://play.google.com/" target="_blank" rel="noopener noreferrer">
-                    <img src="retire_tile.png" alt="Retire">
-                    <p>Retire - Personal Project</p>
-                </a>
-                <a class="carousel-slide" href="http://www.kagisomedia.co.za/" target="_blank"
-                    rel="noopener noreferrer">
-                    <img src="kagiso_tile.png" alt="Kagiso Media">
-                    <p>Kagiso Media</p>
-                </a>
-                <a class="carousel-slide" href="https://www.snuza.com/" target="_blank" rel="noopener noreferrer">
-                    <img src="snuza_tile.png" alt="Snuza">
-                    <p>Snuza</p>
-                </a>
-                <a class="carousel-slide" href="https://www.eventcloud.io/" target="_blank" rel="noopener noreferrer">
-                    <img src="eventcloud_tile.png" alt="EventCloud">
-                    <p>EventCloud</p>
-                </a>
-                <a class="carousel-slide" href="https://nomanini.com/" target="_blank" rel="noopener noreferrer">
-                    <img src="nomanini_tile.png" alt="Nomanini">
-                    <p>Nomanini</p>
-                </a>
-                <a class="carousel-slide" href="https://trackmatic.co.za/" target="_blank" rel="noopener noreferrer">
-                    <img src="trackmatic_tile.jpeg" alt="Trackmatic">
-                    <p>Trackmatic</p>
-                </a>
-                <a class="carousel-slide" href="https://flash.co.za/" target="_blank" rel="noopener noreferrer">
-                    <img src="flash_tile.png" alt="Flash">
-                    <p>Flash</p>
-                </a>
-                <a class="carousel-slide" href="https://www.kazang.com/" target="_blank" rel="noopener noreferrer">
-                    <img src="kazang_tile.png" alt="Kazang">
-                    <p>Kazang</p>
-                </a>
-                <a class="carousel-slide" href="https://workwidemobile.com/" target="_blank" rel="noopener noreferrer">
-                    <img src="workwide_tile.jpeg" alt="WorkWide">
-                    <p>WorkWide</p>
-                </a>
-                <a class="carousel-slide" href="https://qwartel.co.za/" target="_blank" rel="noopener noreferrer">
-                    <img src="qwartel_tile.png" alt="Qwartel">
-                    <p>Qwartel - Personal Project</p>
-                </a>
-                <a class="carousel-slide" href="https://www.navistudios.co.za/" target="_blank"
-                    rel="noopener noreferrer">
-                    <img src="navi_studios_tile.jpeg" alt="Navi Studios">
-                    <p>Navi Studios</p>
-                </a>
-                <a class="carousel-slide" href="https://www.sasol.co.za/" target="_blank" rel="noopener noreferrer">
-                    <img src="sasol_tile.jpeg" alt="Sasol">
-                    <p>SASOL</p>
-                </a>
-                <a class="carousel-slide" href="https://pip.global/en/" target="_blank" rel="noopener noreferrer">
-                    <img src="pip_tile.png" alt="PIP">
-                    <p>Partners in Performance</p>
-                </a>
-                <a class="carousel-slide" href="https://www.amazon.com/" target="_blank" rel="noopener noreferrer">
-                    <img src="amazon_tile.jpeg" alt="Amazon">
-                    <p>Amazon</p>
-                </a>
-                <a class="carousel-slide" href="https://www.capitecbank.co.za/" target="_blank"
-                    rel="noopener noreferrer">
-                    <img src="capitec_tile.jpeg" alt="Capitec">
-                    <p>Capitec</p>
-                </a>
-                <a class="carousel-slide" href="https://www.enablu.co.za/" target="_blank" rel="noopener noreferrer">
-                    <img src="enablu_tile.png" alt="EnablU">
-                    <p>EnablU</p>
-                </a>
-                <a class="carousel-slide" href="https://ikota.net/" target="_blank" rel="noopener noreferrer">
-                    <img src="ikota_tile.png" alt="iKota">
-                    <p>iKota - Personal Project</p>
-                </a>
-                <a class="carousel-slide" href="https://chat.openai.com/g/g-8dHdTobau-nakz" target="_blank"
-                    rel="noopener noreferrer">
-                    <img src="nakz_tile.png" alt="iKota">
-                    <p>NakZ - Personal Project</p>
-                </a>
-                <a class="carousel-slide" href="https://verifiedtalent.com" target="_blank" rel="noopener noreferrer">
-                    <img src="verified_talent_tile.png" alt="VerifiedTalent">
-                    <p>VerifiedTalent</p>
-                </a>
-                <a class="carousel-slide" href="https://www.warpdevelopment.com/" target="_blank"
-                    rel="noopener noreferrer">
-                    <img src="warp_tile.jpeg" alt="Warp Development">
-                    <p>Warp Development</p>
-                </a>
-                <a class="carousel-slide" href="https://www.skeg.com/" target="_blank" rel="noopener noreferrer">
-                    <img src="skeg_logo.png" alt="SKEG">
-                    <p>SKEG</p>
-                </a>
-            </div>
+            <a href="index_backup.html" class="view-old-button">
+                <code>old_thing 👀</code>
+            </a>
         </div>
 
-        <script>
-            let slideIndex = 0;
-            let slides = document.querySelectorAll('.carousel-slide');
-            let slideCount = slides.length;
-
-            function moveSlides() {
-                slideIndex++;
-
-                if (slideIndex >= slideCount) {
-                    slideIndex = 0;
-                }
-
-                let offset = -slideIndex * 300; // 300px is the width of each slide
-                for (let i = 0; i < slideCount; i++) {
-                    slides[i].style.transform = `translateX(${offset}px)`;
-                }
-            }
-
-            setInterval(moveSlides, 1500); // Move slides every 1.5 seconds
-        </script>
-        <footer>Copyright © CodeTonight (Pty) Ltd 2023</footer>
+        <footer>Copyright &copy; CodeTonight (Pty) Ltd 2025</footer>
     </div>
 </body>
 
