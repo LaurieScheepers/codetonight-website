@@ -14,12 +14,14 @@
     <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
     <link rel="manifest" href="site.webmanifest">
 
+
     <meta property="og:title" content="CodeTonight" />
     <meta property="og:description" content="building.new.revamp" />
     <meta property="og:image" content="http://www.codetonight.co.za/codetonight_logo.jpg" />
     <meta property="og:url" content="http://www.codetonight.co.za/" />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="CodeTonight" />
+
 
     <style>
         *,
@@ -200,6 +202,219 @@
             flex-shrink: 0;
         }
 
+        /* Custom password prompt dialog */
+        /* TODO: Style the password prompt correctly to fit the style of the rest of the page */
+        .password-prompt {
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: #FF4081;
+        }
+
+        /* Password Modal Styles */
+        .password-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            backdrop-filter: blur(5px);
+        }
+
+        .password-modal-content {
+            background: rgba(28, 28, 28, 0.95);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 15px;
+            padding: 30px;
+            max-width: 400px;
+            width: 90%;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            animation: fade-in 0.3s ease-in-out;
+        }
+
+        .password-modal h3 {
+            color: #FF4081;
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            font-family: 'Roboto Mono', monospace;
+        }
+
+        .password-input-container {
+            position: relative;
+            margin-bottom: 20px;
+        }
+
+        .password-input {
+            width: 100%;
+            padding: 12px 45px 12px 15px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 8px;
+            color: #f1f1f1;
+            font-family: 'Roboto Mono', monospace;
+            font-size: 1rem;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        .password-input:focus {
+            border-color: #FF4081;
+            box-shadow: 0 0 10px rgba(255, 64, 129, 0.3);
+        }
+
+        .password-input::placeholder {
+            color: rgba(241, 241, 241, 0.6);
+        }
+
+        .eye-toggle {
+            position: absolute;
+            right: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            color: rgba(241, 241, 241, 0.7);
+            cursor: pointer;
+            font-size: 1.2rem;
+            transition: color 0.3s ease;
+        }
+
+        .eye-toggle:hover {
+            color: #FF4081;
+        }
+
+        .modal-buttons {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+        }
+
+        .modal-btn {
+            padding: 10px 20px;
+            background: transparent;
+            color: #f1f1f1;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 8px;
+            font-family: 'Roboto Mono', monospace;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .modal-btn:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: #FF4081;
+        }
+
+        .modal-btn.primary {
+            background: rgba(255, 64, 129, 0.2);
+            border-color: #FF4081;
+        }
+
+        .modal-btn.primary:hover {
+            background: rgba(255, 64, 129, 0.3);
+        }
+
+        /* Custom Alert Styles */
+        .custom-alert {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: rgba(220, 53, 69, 0.9);
+            color: white;
+            padding: 15px 20px;
+            border-radius: 8px;
+            font-family: 'Roboto Mono', monospace;
+            font-size: 0.9rem;
+            z-index: 1001;
+            animation: slideIn 0.3s ease-in-out;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .custom-alert.success {
+            background: rgba(40, 167, 69, 0.9);
+            border-color: rgba(40, 167, 69, 0.5);
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideOut {
+            from {
+                transform: translateX(0);
+                opacity: 1;
+            }
+
+            to {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+        }
+
+        /* Confetti Styles */
+        .confetti-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 999;
+        }
+
+        .confetti {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: #FF4081;
+            animation: confetti-fall 5s linear forwards;
+        }
+
+        .confetti:nth-child(odd) {
+            background: #FFD700;
+        }
+
+        .confetti:nth-child(3n) {
+            background: #00FF88;
+        }
+
+        .confetti:nth-child(4n) {
+            background: #FF6B6B;
+        }
+
+        .confetti:nth-child(5n) {
+            background: #4ECDC4;
+        }
+
+        @keyframes confetti-fall {
+            0% {
+                transform: translateY(-10px) rotate(0deg);
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(100vh) rotate(720deg);
+                opacity: 0;
+            }
+        }
+
         /* Mobile and tablet screens */
         @media (max-width: 768px) {
             .coming-soon-title {
@@ -273,5 +488,196 @@
         <footer>Copyright &copy; CodeTonight (Pty) Ltd 2025</footer>
     </div>
 </body>
+
+<script>
+    // Global variables for environment config
+    let CORRECT_PASSWORD = '';
+    let MANIFESTO_URL = '';
+
+    // Load environment variables from our API
+    async function loadConfig() {
+        try {
+            const response = await fetch('/api/config');
+            const config = await response.json();
+
+            CORRECT_PASSWORD = config.MANIFESTO_PASSWORD;
+            MANIFESTO_URL = config.MANIFESTO_URL;
+        } catch (error) {
+            console.error('Failed to load config:', error);
+        }
+    }
+
+    // Password protection for the clickity click link
+    const clickityClickLink = document.querySelector('.cta-button');
+
+    // Create and show password modal
+    function showPasswordModal() {
+        // Create modal container
+        const modal = document.createElement('div');
+        modal.className = 'password-modal';
+
+        // Create modal content
+        const modalContent = document.createElement('div');
+        modalContent.className = 'password-modal-content';
+
+        // Create title
+        const title = document.createElement('h3');
+        title.textContent = 'Enter Your Collaborator™ Password 😁';
+
+        // Create password input container
+        const inputContainer = document.createElement('div');
+        inputContainer.className = 'password-input-container';
+
+        // Create password input
+        const passwordInput = document.createElement('input');
+        passwordInput.type = 'password';
+        passwordInput.className = 'password-input';
+        passwordInput.placeholder = 'Password...';
+
+        // Create eye toggle button
+        const eyeToggle = document.createElement('button');
+        eyeToggle.className = 'eye-toggle';
+        eyeToggle.innerHTML = '👁️';
+        eyeToggle.title = 'Toggle password visibility';
+
+        // Toggle password visibility
+        eyeToggle.addEventListener('click', () => {
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                eyeToggle.innerHTML = '🙈';
+            } else {
+                passwordInput.type = 'password';
+                eyeToggle.innerHTML = '👁️';
+            }
+        });
+
+        // Create buttons container
+        const buttonsContainer = document.createElement('div');
+        buttonsContainer.className = 'modal-buttons';
+
+        // Create submit button
+        const submitBtn = document.createElement('button');
+        submitBtn.className = 'modal-btn primary';
+        submitBtn.textContent = 'Submit';
+
+        // Create cancel button
+        const cancelBtn = document.createElement('button');
+        cancelBtn.className = 'modal-btn';
+        cancelBtn.textContent = 'Cancel';
+
+        // Handle submit
+        const handleSubmit = () => {
+            const password = passwordInput.value.trim();
+
+            if (password === CORRECT_PASSWORD) {
+                // Remove modal
+                document.body.removeChild(modal);
+
+                // Show confetti
+                showConfetti();
+
+                // Redirect after confetti animation
+                setTimeout(() => {
+                    // Try to open in new tab, fallback to same tab if blocked
+                    const newWindow = window.open(MANIFESTO_URL, '_blank');
+                    if (!newWindow || newWindow.closed || typeof newWindow.closed === 'undefined') {
+                        // Popup was blocked, redirect in same tab
+                        window.location.href = MANIFESTO_URL;
+                    }
+                }, 5000);
+            } else {
+                showCustomAlert('Sorry, not allowed 😭');
+                passwordInput.value = '';
+                passwordInput.focus();
+            }
+        };
+
+        // Add event listeners
+        submitBtn.addEventListener('click', handleSubmit);
+        cancelBtn.addEventListener('click', () => {
+            document.body.removeChild(modal);
+        });
+
+        // Handle Enter key
+        passwordInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                handleSubmit();
+            }
+        });
+
+        // Assemble modal
+        inputContainer.appendChild(passwordInput);
+        inputContainer.appendChild(eyeToggle);
+        buttonsContainer.appendChild(submitBtn);
+        buttonsContainer.appendChild(cancelBtn);
+        modalContent.appendChild(title);
+        modalContent.appendChild(inputContainer);
+        modalContent.appendChild(buttonsContainer);
+        modal.appendChild(modalContent);
+
+        // Add to page
+        document.body.appendChild(modal);
+
+        // Focus on input
+        passwordInput.focus();
+    }
+
+    // Show custom alert
+    function showCustomAlert(message, type = 'error') {
+        const alert = document.createElement('div');
+        alert.className = `custom-alert ${type}`;
+        alert.textContent = message;
+
+        document.body.appendChild(alert);
+
+        // Remove after 3 seconds (or 5 seconds for success)
+        const duration = type === 'success' ? 5000 : 3000;
+        setTimeout(() => {
+            alert.style.animation = 'slideOut 0.3s ease-in-out forwards';
+            setTimeout(() => {
+                if (document.body.contains(alert)) {
+                    document.body.removeChild(alert);
+                }
+            }, 300);
+        }, duration);
+    }
+
+    // Show confetti animation
+    function showConfetti() {
+        const confettiContainer = document.createElement('div');
+        confettiContainer.className = 'confetti-container';
+
+        // Create confetti pieces
+        for (let i = 0; i < 100; i++) {
+            const confetti = document.createElement('div');
+            confetti.className = 'confetti';
+            confetti.style.left = Math.random() * 100 + '%';
+            confetti.style.animationDelay = Math.random() * 2 + 's';
+            confetti.style.animationDuration = (Math.random() * 3 + 2) + 's';
+            confettiContainer.appendChild(confetti);
+        }
+
+        document.body.appendChild(confettiContainer);
+
+        // Show success message
+        showCustomAlert('🎉 Collaborator™ Access Granted 😌. Get ready...', 'success');
+
+        // Remove confetti container after animation
+        setTimeout(() => {
+            if (document.body.contains(confettiContainer)) {
+                document.body.removeChild(confettiContainer);
+            }
+        }, 5000);
+    }
+
+    // Add click event to the button
+    clickityClickLink.addEventListener('click', (e) => {
+        e.preventDefault();
+        showPasswordModal();
+    });
+
+    // Load config when page loads
+    loadConfig();
+</script>
 
 </html>
