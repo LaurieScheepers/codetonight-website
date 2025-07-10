@@ -24,6 +24,10 @@ app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'index.html'));
 });
 
+app.get('/index_old.html', (req, res) => {
+    res.sendFile(path.join(__dirname, 'index_old.html'));
+});
+
 // Start server
 app.listen(PORT, () => {
     console.log(`🚀 CodeTonight server running on http://localhost:${PORT}`);
