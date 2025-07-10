@@ -21,16 +21,21 @@ app.get('/api/config', (req, res) => {
 
 // Serve the main HTML file
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'index.html'));
+    res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
 app.get('/index_old.html', (req, res) => {
-    res.sendFile(path.join(__dirname, 'index_old.html'));
+    res.sendFile(path.join(__dirname, 'public', 'index_old.html'));
 });
 
-// Start server
-app.listen(PORT, () => {
-    console.log(`🚀 CodeTonight server running on http://localhost:${PORT}`);
-    console.log(`📁 Serving files from: ${__dirname}`);
-    console.log(`🔐 Environment variables loaded: ${process.env.MANIFESTO_PASSWORD ? 'Password ✓' : 'Password ✗'}, ${process.env.MANIFESTO_URL ? 'URL ✓' : 'URL ✗'}`);
-}); 
+// For local development
+if (process.env.NODE_ENV !== 'production') {
+    app.listen(PORT, () => {
+        console.log(`🚀 CodeTonight server running on http://localhost:${PORT}`);
+        console.log(`📁 Serving files from: ${__dirname}`);
+        console.log(`🔐 Environment variables loaded: ${process.env.MANIFESTO_PASSWORD ? 'Password ✓' : 'Password ✗'}, ${process.env.MANIFESTO_URL ? 'URL ✓' : 'URL ✗'}`);
+    });
+}
+
+// For Vercel serverless deployment
+module.exports = app; 

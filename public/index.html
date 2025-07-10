@@ -496,7 +496,6 @@
     // Load environment variables from our API
     async function loadConfig() {
         try {
-            // The request must have a header of 'Content-Type: application/json'
             const response = await fetch('/api/config', {
                 headers: {
                     'Content-Type': 'application/json'
