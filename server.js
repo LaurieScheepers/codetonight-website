@@ -9,7 +9,7 @@ const PORT = process.env.PORT || 3000;
 // Middleware
 app.use(cors());
 app.use(express.json());
-app.use(express.static('.')); // Serve static files from current directory
+app.use(express.static(path.join(__dirname, 'public'))); // Serve static files from public directory
 
 // API endpoint to get environment variables (for client-side use)
 app.get('/api/config', (req, res) => {
