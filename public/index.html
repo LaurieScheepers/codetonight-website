@@ -490,23 +490,29 @@
 
 <script>
     // Global variables for environment config
-    let CORRECT_PASSWORD = '';
     let MANIFESTO_URL = '';
 
-    // Load environment variables from our API
-    async function loadConfig() {
+    // Validate password with server (secure - no secrets exposed)
+    async function validatePassword(password) {
         try {
-            const response = await fetch('/api/config', {
+            const response = await fetch('/api/validate-password', {
+                method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
-                }
+                },
+                body: JSON.stringify({ password })
             });
-            const config = await response.json();
 
-            CORRECT_PASSWORD = config.MANIFESTO_PASSWORD;
-            MANIFESTO_URL = config.MANIFESTO_URL;
+            const result = await response.json();
+
+            if (result.success) {
+                return result.redirectUrl; // Return the internal redirect URL
+            } else {
+                return null;
+            }
         } catch (error) {
-            console.error('Failed to load config:', error);
+            console.error('Failed to validate password:', error);
+            return null;
         }
     }
 
@@ -569,29 +575,44 @@
         cancelBtn.textContent = 'Cancel';
 
         // Handle submit
-        const handleSubmit = () => {
+        const handleSubmit = async () => {
             const password = passwordInput.value.trim();
 
-            if (password === CORRECT_PASSWORD) {
+            if (!password) {
+                showCustomAlert('Please enter a password');
+                return;
+            }
+
+            // Disable submit button during validation
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Validating...';
+
+            const redirectUrl = await validatePassword(password);
+
+            if (redirectUrl) {
                 // Remove modal
                 document.body.removeChild(modal);
 
                 // Show confetti
                 showConfetti();
 
-                // Redirect after confetti animation
+                // Redirect after confetti animation using the internal redirect URL
                 setTimeout(() => {
                     // Try to open in new tab, fallback to same tab if blocked
-                    const newWindow = window.open(MANIFESTO_URL, '_blank');
+                    const newWindow = window.open(redirectUrl, '_blank');
                     if (!newWindow || newWindow.closed || typeof newWindow.closed === 'undefined') {
                         // Popup was blocked, redirect in same tab
-                        window.location.href = MANIFESTO_URL;
+                        window.location.href = redirectUrl;
                     }
                 }, 5000);
             } else {
                 showCustomAlert('Sorry, not allowed 😭');
                 passwordInput.value = '';
                 passwordInput.focus();
+
+                // Re-enable submit button
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Submit';
             }
         };
 
@@ -678,9 +699,6 @@
         e.preventDefault();
         showPasswordModal();
     });
-
-    // Load config when page loads
-    loadConfig();
 </script>
 
 </html>

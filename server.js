@@ -11,12 +11,42 @@ app.use(cors());
 app.use(express.json());
 app.use(express.static(path.join(__dirname, 'public'))); // Serve static files from public directory
 
-// API endpoint to get environment variables (for client-side use)
-app.get('/api/config', (req, res) => {
-    res.json({
-        MANIFESTO_PASSWORD: process.env.MANIFESTO_PASSWORD,
-        MANIFESTO_URL: process.env.MANIFESTO_URL
-    });
+// API endpoint to validate password and redirect (secure - no secrets exposed)
+app.post('/api/validate-password', (req, res) => {
+    const { password } = req.body;
+
+    if (!password) {
+        return res.status(400).json({
+            success: false,
+            message: 'Password is required'
+        });
+    }
+
+    const correctPassword = process.env.MANIFESTO_PASSWORD;
+    const manifestoUrl = process.env.MANIFESTO_URL;
+
+    if (password === correctPassword) {
+        // Return success without exposing the URL
+        res.json({
+            success: true,
+            redirectUrl: '/api/redirect-to-manifesto' // Internal redirect endpoint
+        });
+    } else {
+        res.status(401).json({
+            success: false,
+            message: 'Invalid password'
+        });
+    }
+});
+
+// Internal redirect endpoint (not exposed in network traffic)
+app.get('/api/redirect-to-manifesto', (req, res) => {
+    const manifestoUrl = process.env.MANIFESTO_URL;
+    if (manifestoUrl) {
+        res.redirect(manifestoUrl);
+    } else {
+        res.status(500).json({ error: 'Manifesto URL not configured' });
+    }
 });
 
 // Serve the main HTML file
