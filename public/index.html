@@ -12,9 +12,9 @@
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="manifest" href="site.webmanifest">
-
-
+    <link rel="manifest" href="/site.webmanifest">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta property="og:title" content="CodeTonight" />
     <meta property="og:description" content="Advanced Software Development and AI Consultancy" />
     <meta property="og:image" content="https://www.codetonight.co.za/og-codetonight-logo.png" />
@@ -23,6 +23,7 @@
     <meta property="og:url" content="https://www.codetonight.co.za/" />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="CodeTonight" />
+    <title>CodeTonight</title>
 
     <style>
         *,
@@ -61,22 +62,8 @@
             }
         }
 
-        @keyframes pulse {
-            0% {
-                transform: scale(1);
-            }
-
-            50% {
-                transform: scale(1.05);
-            }
-
-            100% {
-                transform: scale(1);
-            }
-        }
-
         body {
-            background-image: url("/codetonight_bg.jpeg");
+            background-image: url("codetonight_bg.jpeg");
             background-size: cover;
             background-color: #1c1c1c;
             background-position: center;
@@ -95,11 +82,11 @@
         .main-container {
             display: flex;
             flex-grow: 1;
-            flex-direction: column;
+            flex-direction: row;
             width: 100%;
             margin: auto;
             padding: 20px;
-            align-items: center;
+            align-items: start;
             justify-content: center;
             text-align: center;
         }
@@ -111,88 +98,34 @@
             flex-grow: 1;
         }
 
-        .logo {
-            max-width: 300px;
-            height: auto;
-            margin: 30px;
-            animation: pulse 3s infinite ease-in-out;
+        .half-container {
+            display: flex;
+            flex: 1;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
         }
 
-        .coming-soon-title {
-            font-size: 2rem;
-            font-weight: 700;
-            margin: 20px 0;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        .left-half-container {
+            flex: 1;
+            flex-direction: column;
         }
 
-        .subtitle {
-            font-size: 1.5rem;
-            margin: 20px 0 40px 0;
-            opacity: 0.9;
-            max-width: 600px;
-            line-height: 1.4;
-        }
-
-        .cta-section {
-            margin: 20px 0;
-            padding: 10px;
-            background: transparent;
-            max-width: 500px;
-        }
-
-        .cta-title {
-            font-size: 1rem;
-            font-weight: 700;
-            margin-bottom: 15px;
-            color: #FF4081;
-        }
-
-        .cta-description {
-            font-size: 1rem;
-            margin-bottom: 25px;
-            line-height: 1.5;
-        }
-
-        .cta-button {
-            display: inline-block;
-            background: transparent;
+        blockquote {
+            background-color: #464646;
             color: white;
-            padding: 10px;
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 1rem;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(50, 50, 50, 0.3);
-            animation: pulse 2s infinite ease-in-out;
+            font-family: monospace;
+            padding: 20px;
+            margin: 20px 0;
+            border: 5px solid #2c2c2c;
         }
 
-        .cta-button:hover {
-            transform: translateY(-2px);
-            border: 1px solid #ffffff;
-            border-radius: 10px;
-            box-shadow: 0 6px 20px rgba(251, 253, 255, 0.4);
-            background: transparent;
-            color: #ffffff;
-        }
-
-        .view-old-button {
-            display: inline-block;
-            background: rgba(255, 255, 255, 0.1);
-            color: #f1f1f1;
-            padding: 12px 25px;
-            text-decoration: none;
-            border-radius: 25px;
-            font-weight: 400;
-            font-size: 0.9rem;
-            transition: all 0.3s ease;
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            margin-top: 30px;
-        }
-
-        .view-old-button:hover {
-            background: rgba(255, 255, 255, 0.2);
-            transform: translateY(-1px);
-        }
+        /* blockquote .ol {
+            list-style-type: none;
+            align-items: start;
+            align-content: start;
+            justify-content: none;
+        } */
 
         footer {
             position: relative;
@@ -203,270 +136,378 @@
             flex-shrink: 0;
         }
 
-        .contact-us {
-            font-size: 1rem;
-            font-weight: 400;
-            margin-top: 5px;
-            color: #FF4081;
+        .logo {
+            max-width: 75%;
+            height: auto;
+            margin: 30px;
         }
 
-        .visit {
-            font-size: 1rem;
-            font-weight: 400;
-            margin-top: 5px;
-            color: #FF4081;
+        .profile-picture {
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
         }
 
-        /* Custom password prompt dialog */
-        /* TODO: Style the password prompt correctly to fit the style of the rest of the page */
-        .password-prompt {
-            font-size: 1rem;
-            font-weight: 700;
-            margin-bottom: 15px;
-            color: #FF4081;
-        }
-
-        /* Password Modal Styles */
-        .password-modal {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.8);
+        .profile-pic-container {
             display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: flex-end;
+            gap: 80px;
+        }
+
+        .profile-description {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .profile-name {
+            font-size: 14px;
+            color: #f1f1f1;
+            margin-top: 10px;
+            text-align: center;
+        }
+
+        .founder-name {
+            font-size: 18px;
+            text-align: center;
+            margin-top: 20px;
+            margin-right: 10px;
+        }
+
+        .description {
+            max-width: 90%;
+            word-wrap: break-word;
+        }
+
+        .firm-description {
+            font-size: 22px;
+            margin-top: 50px;
+        }
+
+        .caption {
+            font-size: 12px;
+        }
+
+        h2 {
+            font-size: 18px;
+            margin-top: 20px;
+        }
+
+        .sub-text {
+            font-size: 14px;
+            margin-top: 20px;
+        }
+
+        .contact-us-container {
+            display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
-            z-index: 1000;
-            backdrop-filter: blur(5px);
+            margin: 20px;
         }
 
-        .password-modal-content {
-            background: rgba(28, 28, 28, 0.95);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 15px;
-            padding: 30px;
-            max-width: 400px;
-            width: 90%;
-            text-align: center;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-            animation: fade-in 0.3s ease-in-out;
+        .email-text {
+            font-size: 18px;
+            margin-top: 40px;
         }
 
-        .password-modal h3 {
-            color: #FF4081;
-            font-size: 1.2rem;
-            font-weight: 700;
-            margin-bottom: 20px;
-            font-family: 'Roboto Mono', monospace;
-        }
-
-        .password-input-container {
-            position: relative;
+        .see-below-text {
+            font-size: 14px;
+            margin-top: 40px;
             margin-bottom: 20px;
         }
 
-        .password-input {
-            width: 100%;
-            padding: 12px 45px 12px 15px;
-            background: rgba(255, 255, 255, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            border-radius: 8px;
+        .email-text a {
             color: #f1f1f1;
-            font-family: 'Roboto Mono', monospace;
-            font-size: 1rem;
-            outline: none;
-            transition: all 0.3s ease;
+            text-decoration: underline;
         }
 
-        .password-input:focus {
-            border-color: #FF4081;
-            box-shadow: 0 0 10px rgba(255, 64, 129, 0.3);
+        .client-section {
+            text-align: center;
+            margin: auto;
+            align-items: center;
+            justify-content: center;
+            padding-bottom: 50px;
         }
 
-        .password-input::placeholder {
-            color: rgba(241, 241, 241, 0.6);
-        }
-
-        .eye-toggle {
-            position: absolute;
-            right: 12px;
-            top: 50%;
-            transform: translateY(-50%);
-            background: none;
-            border: none;
-            color: rgba(241, 241, 241, 0.7);
-            cursor: pointer;
-            font-size: 1.2rem;
-            transition: color 0.3s ease;
-        }
-
-        .eye-toggle:hover {
-            color: #FF4081;
-        }
-
-        .modal-buttons {
+        .client-logos {
             display: flex;
-            gap: 10px;
+            flex-wrap: wrap;
+            gap: 20px;
+            align-items: center;
             justify-content: center;
         }
 
-        .modal-btn {
-            padding: 10px 20px;
-            background: transparent;
+        .client-item {
+            width: 100px;
+            height: 150px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            flex: 0 0 calc(20% - 20px);
+            border-radius: 10px;
+            transition: 0.3s;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .no-training {
+            display: flex;
+            flex-direction: column;
+            width: 50%;
+            height: 50%;
+            align-items: center;
+            justify-content: center;
+            margin: auto;
+            text-align: center;
+        }
+
+        a {
+            text-decoration: none;
+            color: #1E88E5;
+        }
+
+        a.carousel-slide {
+            text-decoration: none;
             color: #f1f1f1;
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            border-radius: 8px;
-            font-family: 'Roboto Mono', monospace;
-            font-size: 0.9rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
         }
 
-        .modal-btn:hover {
-            background: rgba(255, 255, 255, 0.1);
-            border-color: #FF4081;
+        a.carousel-slide:hover {
+            transform: scale(1.15);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
         }
 
-        .modal-btn.primary {
-            background: rgba(255, 64, 129, 0.2);
-            border-color: #FF4081;
+        a.carousel-slide img {
+            height: 150px;
+            width: 150px;
+            object-fit: cover;
         }
 
-        .modal-btn.primary:hover {
-            background: rgba(255, 64, 129, 0.3);
+        a.carousel-slide img[src$=".svg"] {
+            object-fit: contain;
         }
 
-        /* Custom Alert Styles */
-        .custom-alert {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            background: rgba(220, 53, 69, 0.9);
-            color: white;
-            padding: 15px 20px;
-            border-radius: 8px;
-            font-family: 'Roboto Mono', monospace;
-            font-size: 0.9rem;
-            z-index: 1001;
-            animation: slideIn 0.3s ease-in-out;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-
-        .custom-alert.success {
-            background: rgba(40, 167, 69, 0.9);
-            border-color: rgba(40, 167, 69, 0.5);
-        }
-
-        @keyframes slideIn {
-            from {
-                transform: translateX(100%);
-                opacity: 0;
-            }
-
-            to {
-                transform: translateX(0);
-                opacity: 1;
-            }
-        }
-
-        @keyframes slideOut {
-            from {
-                transform: translateX(0);
-                opacity: 1;
-            }
-
-            to {
-                transform: translateX(100%);
-                opacity: 0;
-            }
-        }
-
-        /* Confetti Styles */
-        .confetti-container {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 999;
-        }
-
-        .confetti {
-            position: absolute;
-            width: 10px;
-            height: 10px;
-            background: #FF4081;
-            animation: confetti-fall 5s linear forwards;
-        }
-
-        .confetti:nth-child(odd) {
-            background: #FFD700;
-        }
-
-        .confetti:nth-child(3n) {
-            background: #00FF88;
-        }
-
-        .confetti:nth-child(4n) {
-            background: #FF6B6B;
-        }
-
-        .confetti:nth-child(5n) {
-            background: #4ECDC4;
-        }
-
-        @keyframes confetti-fall {
-            0% {
-                transform: translateY(-10px) rotate(0deg);
-                opacity: 1;
-            }
-
-            100% {
-                transform: translateY(100vh) rotate(720deg);
-                opacity: 0;
-            }
+        .carousel-slide p {
+            margin-top: 10px;
         }
 
         /* Mobile and tablet screens */
-        @media (max-width: 768px) {
-            .coming-soon-title {
-                font-size: 1rem;
+        @media (max-width: 1024px) {
+
+            .main-container,
+            .profile-pic-container,
+            .left-half-container,
+            .half-container {
+                flex: 0;
+                flex-direction: column;
+                align-items: center;
             }
 
-            .subtitle {
-                font-size: 1.2rem;
-                padding: 0 20px;
-            }
-
-            .cta-section {
-                margin: 20px;
-                padding: 20px;
-            }
-
-            .cta-title {
-                font-size: 1rem;
+            .profile-picture,
+            .founder-name {
+                margin-right: 0;
             }
 
             .logo {
-                max-width: 200px;
+                width: 75%;
+                height: auto;
+                align-items: center;
+            }
+
+            .contact-form {
+                width: 90% !important;
             }
         }
 
         /* Very large screens */
         @media (min-width: 1601px) {
-            .coming-soon-title {
-                font-size: 3rem;
+            body {
+                overflow-y: hidden;
             }
 
-            .subtitle {
-                font-size: 1.8rem;
+            .see-below-text {
+                display: none;
             }
 
-            .cta-section {
-                max-width: 600px;
+            .contact-us-container {
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                margin: 40px;
+            }
+
+            .logo {
+                width: 40%;
+                height: auto;
+            }
+        }
+
+        .sub-text {
+            font-size: 14px;
+            margin-top: 20px;
+            max-width: 550px;
+        }
+
+        .carousel {
+            display: flex;
+            width: 300px;
+            height: 150px;
+            background-color: transparent;
+        }
+
+        .carousel-slide {
+            min-width: 100%;
+            height: 150px;
+            transition: all 0.3s;
+            text-align: center;
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            width: 50%;
+            margin-top: 30px;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 8px;
+            padding: 12px 15px;
+            color: #f1f1f1;
+            font-family: 'Roboto Mono', monospace;
+            font-size: 14px;
+            outline: none;
+            transition: border-color 0.3s ease;
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            border-color: #1E88E5;
+        }
+
+        .contact-form input::placeholder,
+        .contact-form textarea::placeholder {
+            color: rgba(241, 241, 241, 0.6);
+        }
+
+        .contact-form textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+
+        .contact-form button {
+            background: #1E88E5;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            padding: 12px 25px;
+            font-family: 'Roboto Mono', monospace;
+            font-size: 14px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: background 0.3s ease, transform 0.2s ease;
+        }
+
+        .contact-form button:hover {
+            background: #1565C0;
+            transform: translateY(-2px);
+        }
+
+        .contact-form button:disabled {
+            background: #666;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .form-success {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 20px;
+            text-align: center;
+            animation: fade-in 0.5s ease-in-out;
+        }
+
+        .form-success h3 {
+            color: #4CAF50;
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .form-success p {
+            color: #f1f1f1;
+            font-size: 14px;
+        }
+
+        .form-error {
+            background: rgba(244, 67, 54, 0.2);
+            border: 1px solid #F44336;
+            border-radius: 8px;
+            padding: 10px 15px;
+            margin-bottom: 15px;
+            color: #F44336;
+            font-size: 14px;
+            text-align: center;
+        }
+
+        @keyframes fade-in {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Targeting laptop screens */
+        @media (min-width: 800px) and (max-width: 1601px) {
+            .carousel {
+                display: flex;
+                width: 300px;
+                height: 150px;
+            }
+
+            .carousel-slide {
+                min-width: 100%;
+                height: 100px;
+                transition: all 0.3s;
+                text-align: center;
+            }
+
+            .page-wrap {
+                padding-top: 0px;
+            }
+
+            .main-container {
+                margin-top: -20px;
+                padding: 0px;
+            }
+
+            .half-container {
+                margin: 10px;
+                padding: 5px;
+            }
+
+            .client-section {
+                padding-top: 10px;
+            }
+
+            .footer {
+                margin: 0px;
+                padding: 0px;
+            }
+
+            .contact-form {
+                width: 80% !important;
             }
         }
     </style>
@@ -475,246 +516,265 @@
 <body>
     <div class="page-wrap">
         <div class="main-container">
-            <img src="/logo.png" alt="CodeTonight Logo" class="logo">
+            <div class="left-half-container">
+                <img src="/logo.png" alt="CodeTonight Logo" class="logo">
+                <div class="profile-pic-container">
+                    <div class="profile-description">
+                        <img src="/laur_ai.jpeg" alt="Laurie's Picture" class="profile-picture">
+                        <div class="profile-name"><b>Laurie Scheepers</b><br>Founder and Technical Director</div>
+                    </div>
 
-            <h2 class="coming-soon-title">build.new.revamp.2.0.0<br>is.the.future.loading? 🜘 🜗 🜛 🜝</h2>
+                    <div class="profile-description">
+                        <img src="/mia_ai.jpeg" alt="Mia's Picture" class="profile-picture">
+                        <div class="profile-name"><b>Mia Roos</b><br>Executive Director: Business</div>
+                    </div>
+                </div>
+                <div class="contact-us-container">
+                    <div class="email-text"><b>Contact Us!</b>
+                    </div>
+                    <form action="https://formspree.io/f/xrbnaqrg" method="POST" class="contact-form">
+                        <input type="text" name="name" placeholder="Your Name" required>
+                        <input type="email" name="email" placeholder="Your Email" required>
+                        <input type="text" name="_gotcha" style="display:none">
+                        <textarea name="message" placeholder="Your Message" required></textarea>
+                        <button type="submit">Send Message</button>
+                    </form>
 
-            <p class="subtitle">
-
-            </p>
-
-            <div class="cta-section">
-                <h2 class="cta-title">do.you.dare.to.dream?</h2>
-                <p class="cta-description">
-                    <a href="https://persistent-fridge-441.notion.site/" target="_blank" class="cta-button">collab™
-                        portal ☾</a>
-                </p>
+                </div>
             </div>
+            <!-- Company description -->
+            <div class="half-container">
+                <div class="firm-description"><b>Advanced Software Development and AI Consultancy</b></div>
 
-            <a href="https://calendly.com/codetonight" target="_blank" class="view-old-button">
-                ground control to major tom?<br><span class="contact-us">contact us ℡ ☏</span>
-            </a>
+                <!-- <blockquote>As a night-owl, I thrive in the tranquility of the night,<br>where creativity and
+                    innovation
+                    shine brightest ✨.<br>We believe the best solutions are crafted in peaceful hours,<br>ensuring
+                    uninterrupted focus and exceptional quality.<br><br>
+                    - git 🦉
+                </blockquote> -->
 
-            <a href="index_old.html" class="view-old-button">
-                <code>old_site_1.0.0 👀</code><br><span class="visit">visit ↠</span>
-            </a>
+                <div class="description">
+                    <h2>Full-Full-Stack Software Development</h2>
+                    <p class="sub-text">We specialize in end-to-end software solutions, covering AI, frontend, backend,
+                        <b>AND</b> mobile application development for both Android and iOS platforms.
+                    </p>
+
+                    <h2>Cloud Integration</h2>
+                    <p class="sub-text">We tailor our cloud solutions to fit your needs, whether it's AWS, Azure, GCP,
+                        or any other provider. Just tell us what you need, and we'll make it happen.</p>
+
+                    <h2>AI Development Services</h2>
+                    <p class="sub-text">With extensive experience in Machine Learning and specialised
+                        expertise in foundational models and local LLMs, we provide bespoke AI solutions tailored to
+                        your business's
+                        specific needs.</p>
+
+                    <h2>Automated and Accelerated Deliverables</h2>
+                    <p class="sub-text">We leverage advanced AI technologies to significantly accelerate the Software
+                        Development Life Cycle. Using enterprise-grade AI assistants including Claude Code, we integrate
+                        AI as a trusted partner across:
+                        <br><br>
+                        * Software Engineering
+                        <br>
+                        * Project Management
+                        <br>
+                        * Business Engineering
+                        <br>
+                        * Marketing and Content
+                        <br><br>
+                        This ensures accelerated, high-quality deliverables while keeping your data fully secure.
+                        <b>Our AI accounts are opted out of model training - your intellectual property is never used
+                            to train AI models.</b>
+                    </p>
+                </div>
+                <div class="email-text"><b>Email us today and we'll CodeTonight™️ at<br></b><a
+                        href="mailto:development@codetonight.co.za"
+                        target="_blank"><b>development@codetonight.co.za</b></a>
+                </div>
+            </div>
+        </div>
+        <div class="client-section">
+            <p class="client-text"><b>Clients and Work Experience:</b></p>
+            <div id="carousel" class="carousel">
+                <a class="carousel-slide" href="https://www.sun.ac.za/english" target="_blank"
+                    rel="noopener noreferrer">
+                    <img src="/stellenbosch_tile.png" alt="Stellenbosch University">
+                    <p>Stellenbosch University - Coding tutor in res</p>
+                </a>
+                <a class="carousel-slide" href="https://en.wikipedia.org/wiki/Mxit" target="_blank"
+                    rel="noopener noreferrer">
+                    <img src="/mxit_tile.png" alt="Mxit">
+                    <p>Mxit</p>
+                </a>
+                <a class="carousel-slide" href="https://www.thereachtrust.org" target="_blank"
+                    rel="noopener noreferrer">
+                    <img src="/reach_tile.png" alt="The Reach Trust">
+                    <p>The Reach Trust</p>
+                </a>
+                <a class="carousel-slide" href="https://www.thereachtrust.org" target="_blank"
+                    rel="noopener noreferrer">
+                    <img src="/sudonum_tile.png" alt="Sudonum">
+                    <p>Sudonum</p>
+                </a>
+                <a class="carousel-slide" href="https://play.google.com/" target="_blank" rel="noopener noreferrer">
+                    <img src="/sa_inflation_calc_tile.png" alt="SA Inflation Calculator">
+                    <p>SA Inflation Calculator - Personal Project</p>
+                </a>
+                <a class="carousel-slide" href="https://play.google.com/" target="_blank" rel="noopener noreferrer">
+                    <img src="/retire_tile.png" alt="Retire">
+                    <p>Retire - Personal Project</p>
+                </a>
+                <a class="carousel-slide" href="http://www.kagisomedia.co.za/" target="_blank"
+                    rel="noopener noreferrer">
+                    <img src="/kagiso_tile.png" alt="Kagiso Media">
+                    <p>Kagiso Media</p>
+                </a>
+                <a class="carousel-slide" href="https://www.snuza.com/" target="_blank" rel="noopener noreferrer">
+                    <img src="/snuza_tile.png" alt="Snuza">
+                    <p>Snuza</p>
+                </a>
+                <a class="carousel-slide" href="https://www.eventcloud.io/" target="_blank" rel="noopener noreferrer">
+                    <img src="/eventcloud_tile.png" alt="EventCloud">
+                    <p>EventCloud</p>
+                </a>
+                <a class="carousel-slide" href="https://nomanini.com/" target="_blank" rel="noopener noreferrer">
+                    <img src="/nomanini_tile.png" alt="Nomanini">
+                    <p>Nomanini</p>
+                </a>
+                <a class="carousel-slide" href="https://trackmatic.co.za/" target="_blank" rel="noopener noreferrer">
+                    <img src="/trackmatic_tile.jpeg" alt="Trackmatic">
+                    <p>Trackmatic</p>
+                </a>
+                <a class="carousel-slide" href="https://flash.co.za/" target="_blank" rel="noopener noreferrer">
+                    <img src="/flash_tile.png" alt="Flash">
+                    <p>Flash</p>
+                </a>
+                <a class="carousel-slide" href="https://www.kazang.com/" target="_blank" rel="noopener noreferrer">
+                    <img src="/kazang_tile.png" alt="Kazang">
+                    <p>Kazang</p>
+                </a>
+                <a class="carousel-slide" href="https://workwidemobile.com/" target="_blank" rel="noopener noreferrer">
+                    <img src="/workwide_tile.jpeg" alt="WorkWide">
+                    <p>WorkWide</p>
+                </a>
+                <a class="carousel-slide" href="https://qwartel.co.za/" target="_blank" rel="noopener noreferrer">
+                    <img src="/qwartel_tile.png" alt="Qwartel">
+                    <p>Qwartel - Personal Project</p>
+                </a>
+                <a class="carousel-slide" href="https://www.navistudios.co.za/" target="_blank"
+                    rel="noopener noreferrer">
+                    <img src="/navi_studios_tile.jpeg" alt="Navi Studios">
+                    <p>Navi Studios</p>
+                </a>
+                <a class="carousel-slide" href="https://www.sasol.co.za/" target="_blank" rel="noopener noreferrer">
+                    <img src="/sasol_tile.jpeg" alt="Sasol">
+                    <p>SASOL</p>
+                </a>
+                <a class="carousel-slide" href="https://pip.global/en/" target="_blank" rel="noopener noreferrer">
+                    <img src="/pip_tile.png" alt="PIP">
+                    <p>Partners in Performance</p>
+                </a>
+                <a class="carousel-slide" href="https://www.amazon.com/" target="_blank" rel="noopener noreferrer">
+                    <img src="/amazon_tile.jpeg" alt="Amazon">
+                    <p>Amazon</p>
+                </a>
+                <a class="carousel-slide" href="https://www.capitecbank.co.za/" target="_blank"
+                    rel="noopener noreferrer">
+                    <img src="/capitec_tile.jpeg" alt="Capitec">
+                    <p>Capitec</p>
+                </a>
+                <a class="carousel-slide" href="https://ikota.net/" target="_blank" rel="noopener noreferrer">
+                    <img src="/ikota_tile.png" alt="iKota">
+                    <p>iKota - Personal Project</p>
+                </a>
+                <a class="carousel-slide" href="https://chat.openai.com/g/g-8dHdTobau-nakz" target="_blank"
+                    rel="noopener noreferrer">
+                    <img src="/nakz_tile.png" alt="iKota">
+                    <p>NakZ - Personal Project</p>
+                </a>
+                <a class="carousel-slide" href="https://verifiedtalent.com" target="_blank" rel="noopener noreferrer">
+                    <img src="/verified_talent_tile.png" alt="VerifiedTalent">
+                    <p>VerifiedTalent</p>
+                </a>
+                <a class="carousel-slide" href="https://www.warpdevelopment.com/" target="_blank"
+                    rel="noopener noreferrer">
+                    <img src="/warp_tile.jpeg" alt="Warp Development">
+                    <p>Warp Development</p>
+                </a>
+                <a class="carousel-slide" href="https://www.skeg.com/" target="_blank" rel="noopener noreferrer">
+                    <img src="/skeg_logo.png" alt="SKEG">
+                    <p>SKEG</p>
+                </a>
+                <a class="carousel-slide" href="https://www.aitsa.ai/" target="_blank" rel="noopener noreferrer">
+                    <img src="/soekit_logo.svg" alt="Soekit™">
+                    <p>Soekit™</p>
+                </a>
+            </div>
         </div>
 
-        <footer>Copyright &copy; CodeTonight (Pty) Ltd 2025</footer>
+        <script>
+            let slideIndex = 0;
+            let slides = document.querySelectorAll('.carousel-slide');
+            let slideCount = slides.length;
+
+            function moveSlides() {
+                slideIndex++;
+
+                if (slideIndex >= slideCount) {
+                    slideIndex = 0;
+                }
+
+                let offset = -slideIndex * 300;
+                for (let i = 0; i < slideCount; i++) {
+                    slides[i].style.transform = `translateX(${offset}px)`;
+                }
+            }
+
+            setInterval(moveSlides, 1500);
+
+            const contactForm = document.querySelector('.contact-form');
+            const formContainer = contactForm.parentElement;
+
+            contactForm.addEventListener('submit', async (e) => {
+                e.preventDefault();
+
+                const submitBtn = contactForm.querySelector('button[type="submit"]');
+                const originalText = submitBtn.textContent;
+                const existingError = contactForm.querySelector('.form-error');
+                if (existingError) existingError.remove();
+
+                submitBtn.disabled = true;
+                submitBtn.textContent = 'Sending...';
+
+                try {
+                    const response = await fetch(contactForm.action, {
+                        method: 'POST',
+                        body: new FormData(contactForm),
+                        headers: { 'Accept': 'application/json' }
+                    });
+
+                    if (response.ok) {
+                        formContainer.innerHTML = `
+                            <div class="form-success">
+                                <h3>Thank you!</h3>
+                                <p>Your message has been sent. We'll be in touch soon.</p>
+                            </div>
+                        `;
+                    } else {
+                        throw new Error('Form submission failed');
+                    }
+                } catch (error) {
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = originalText;
+                    const errorDiv = document.createElement('div');
+                    errorDiv.className = 'form-error';
+                    errorDiv.textContent = 'Something went wrong. Please try again or email us directly.';
+                    contactForm.insertBefore(errorDiv, contactForm.firstChild);
+                }
+            });
+        </script>
+        <footer>Copyright © CodeTonight (Pty) Ltd 2025</footer>
     </div>
 </body>
-
-<script>
-    // Global variables for environment config
-    let MANIFESTO_URL = '';
-
-    // Validate password with server (secure - no secrets exposed)
-    async function validatePassword(password) {
-        try {
-            const response = await fetch('/api/validate-password', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({ password })
-            });
-
-            const result = await response.json();
-
-            if (result.success) {
-                return result.redirectUrl; // Return the internal redirect URL
-            } else {
-                return null;
-            }
-        } catch (error) {
-            console.error('Failed to validate password:', error);
-            return null;
-        }
-    }
-
-    // Password protection for the clickity click link
-    const clickityClickLink = document.querySelector('.cta-button');
-
-    // Create and show password modal
-    function showPasswordModal() {
-        // Create modal container
-        const modal = document.createElement('div');
-        modal.className = 'password-modal';
-
-        // Create modal content
-        const modalContent = document.createElement('div');
-        modalContent.className = 'password-modal-content';
-
-        // Create title
-        const title = document.createElement('h3');
-        title.textContent = 'Enter Your Collaborator™ Password 😁';
-
-        // Create password input container
-        const inputContainer = document.createElement('div');
-        inputContainer.className = 'password-input-container';
-
-        // Create password input
-        const passwordInput = document.createElement('input');
-        passwordInput.type = 'password';
-        passwordInput.className = 'password-input';
-        passwordInput.placeholder = 'Password...';
-
-        // Create eye toggle button
-        const eyeToggle = document.createElement('button');
-        eyeToggle.className = 'eye-toggle';
-        eyeToggle.innerHTML = '👁️';
-        eyeToggle.title = 'Toggle password visibility';
-
-        // Toggle password visibility
-        eyeToggle.addEventListener('click', () => {
-            if (passwordInput.type === 'password') {
-                passwordInput.type = 'text';
-                eyeToggle.innerHTML = '🙈';
-            } else {
-                passwordInput.type = 'password';
-                eyeToggle.innerHTML = '👁️';
-            }
-        });
-
-        // Create buttons container
-        const buttonsContainer = document.createElement('div');
-        buttonsContainer.className = 'modal-buttons';
-
-        // Create submit button
-        const submitBtn = document.createElement('button');
-        submitBtn.className = 'modal-btn primary';
-        submitBtn.textContent = 'Submit';
-
-        // Create cancel button
-        const cancelBtn = document.createElement('button');
-        cancelBtn.className = 'modal-btn';
-        cancelBtn.textContent = 'Cancel';
-
-        // Handle submit
-        const handleSubmit = async () => {
-            const password = passwordInput.value.trim();
-
-            if (!password) {
-                showCustomAlert('Please enter a password');
-                return;
-            }
-
-            // Disable submit button during validation
-            submitBtn.disabled = true;
-            submitBtn.textContent = 'Validating...';
-
-            const redirectUrl = await validatePassword(password);
-
-            if (redirectUrl) {
-                // Remove modal
-                document.body.removeChild(modal);
-
-                // Show confetti
-                showConfetti();
-
-                // Redirect after confetti animation using the internal redirect URL
-                setTimeout(() => {
-                    // Try to open in new tab, fallback to same tab if blocked
-                    const newWindow = window.open(redirectUrl, '_blank');
-                    if (!newWindow || newWindow.closed || typeof newWindow.closed === 'undefined') {
-                        // Popup was blocked, redirect in same tab
-                        window.location.href = redirectUrl;
-                    }
-                }, 5000);
-            } else {
-                showCustomAlert('Sorry, not allowed 😭');
-                passwordInput.value = '';
-                passwordInput.focus();
-
-                // Re-enable submit button
-                submitBtn.disabled = false;
-                submitBtn.textContent = 'Submit';
-            }
-        };
-
-        // Add event listeners
-        submitBtn.addEventListener('click', handleSubmit);
-        cancelBtn.addEventListener('click', () => {
-            document.body.removeChild(modal);
-        });
-
-        // Handle Enter key
-        passwordInput.addEventListener('keypress', (e) => {
-            if (e.key === 'Enter') {
-                handleSubmit();
-            }
-        });
-
-        // Assemble modal
-        inputContainer.appendChild(passwordInput);
-        inputContainer.appendChild(eyeToggle);
-        buttonsContainer.appendChild(submitBtn);
-        buttonsContainer.appendChild(cancelBtn);
-        modalContent.appendChild(title);
-        modalContent.appendChild(inputContainer);
-        modalContent.appendChild(buttonsContainer);
-        modal.appendChild(modalContent);
-
-        // Add to page
-        document.body.appendChild(modal);
-
-        // Focus on input
-        passwordInput.focus();
-    }
-
-    // Show custom alert
-    function showCustomAlert(message, type = 'error') {
-        const alert = document.createElement('div');
-        alert.className = `custom-alert ${type}`;
-        alert.textContent = message;
-
-        document.body.appendChild(alert);
-
-        // Remove after 3 seconds (or 5 seconds for success)
-        const duration = type === 'success' ? 5000 : 3000;
-        setTimeout(() => {
-            alert.style.animation = 'slideOut 0.3s ease-in-out forwards';
-            setTimeout(() => {
-                if (document.body.contains(alert)) {
-                    document.body.removeChild(alert);
-                }
-            }, 300);
-        }, duration);
-    }
-
-    // Show confetti animation
-    function showConfetti() {
-        const confettiContainer = document.createElement('div');
-        confettiContainer.className = 'confetti-container';
-
-        // Create confetti pieces
-        for (let i = 0; i < 100; i++) {
-            const confetti = document.createElement('div');
-            confetti.className = 'confetti';
-            confetti.style.left = Math.random() * 100 + '%';
-            confetti.style.animationDelay = Math.random() * 2 + 's';
-            confetti.style.animationDuration = (Math.random() * 3 + 2) + 's';
-            confettiContainer.appendChild(confetti);
-        }
-
-        document.body.appendChild(confettiContainer);
-
-        // Show success message
-        showCustomAlert('🎉 Collaborator™ Access Granted 😌. Get ready...', 'success');
-
-        // Remove confetti container after animation
-        setTimeout(() => {
-            if (document.body.contains(confettiContainer)) {
-                document.body.removeChild(confettiContainer);
-            }
-        }, 5000);
-    }
-
-    // Add click event to the button
-    clickityClickLink.addEventListener('click', (e) => {
-        e.preventDefault();
-        showPasswordModal();
-    });
-</script>
 
 </html>
